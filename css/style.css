@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+
+body {
+    background: #F1FAEE;
+    font-family: 'Roboto', sans-serif;
+}
+
+nav {
+    background: linear-gradient(180deg, #457B9D 26.04%, #1D3557 91.15%);
+    border-bottom: 4px solid #1D3557;
+    padding: 1em;
+}
+
+.navbar {
+    padding: 0;
+}
+
+.navbar2 {
+    padding-bottom: 0;
+}
+
+.logo {
+    width: 18vw;
+    margin-left: 15%;
+    padding: 0;
+    margin-bottom: 0;
+}
+
+.linkNav {
+    font-size: 120%;
+    letter-spacing: 0.3em;
+    color: #F1FAEE;
+    text-transform: uppercase;
+}
+
+#autenticarBtn {
+    cursor: pointer;
+}
+
+.navegador {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 40px;
+}
+
+.navegador li {
+    padding: 0 0.8em;
+}
+
+.portada img {
+    width: 100vw;
+}
+
+.entrada {
+    display: flex;
+    flex-direction: column;
+    margin-top: -8%;
+    margin-left: 12%;
+    margin-right: 12%;
+}
+
+.entrada img {
+    padding-left: 2vw;
+    width: 25vw;
+}
+
+.entrada p {
+    font-size: 1vw;
+    font-weight: 800;
+    color: #1D3557;
+    letter-spacing: 2.33679px;
+    line-height: 290%;
+    padding-bottom: 2vh;
+    padding-top: 2vh;
+}
+
+.botonmio {
+    border: none;
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+@media (max-width: 600px) {
+    .logo {
+        width: 40vw;
+    }
+}
