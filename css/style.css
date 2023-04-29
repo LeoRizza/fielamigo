@@ -23,15 +23,17 @@ nav {
     width: 18vw;
     margin-left: 15%;
     padding: 0;
-    margin-bottom: 0;
+    margin: 0;
 }
 
 .linkNav {
-    font-size: 120%;
+    font-size: 1vw;
     letter-spacing: 0.3em;
     color: #F1FAEE;
     text-transform: uppercase;
+    padding: 0;
 }
+
 
 #autenticarBtn {
     cursor: pointer;
@@ -44,7 +46,7 @@ nav {
 }
 
 .navegador li {
-    padding: 0 0.8em;
+    padding: 0 0.3em;
 }
 
 .portada img {
@@ -76,14 +78,53 @@ nav {
 
 .botonmio {
     border: none;
+    margin-right: 5%;
 }
 
 .navbar-toggler-icon {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='5 0 20 30'%3e%3cpath stroke='rgba%28255, 255, 255, 1%29' stroke-linecap='round' stroke-miterlimit='15' stroke-width='3' d='M3 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
 }
 
 @media (max-width: 600px) {
     .logo {
         width: 40vw;
+    }
+
+    .linkNav {
+        font-size: 2vw;
+        padding-top: 0.5em;
+    }
+
+    .navegador {
+        display: flex;
+        justify-content: center;
+        border-top: solid 0.1em #a1282f;
+        margin: 0;
+    }
+
+    .navbar2 {
+        padding: 0;
+    }
+}
+
+@media (max-width: 991px) and (min-width: 601px) {
+    .linkNav {
+        font-size: 2vw;
+        padding-top: 0.5em;
+    }
+
+    .navegador {
+        display: flex;
+        justify-content: center;
+        border-top: solid 0.2em #a1282f;
+        margin: 0;
+    }
+
+    .navbar2 {
+        padding: 0;
+    }
+
+    .logo {
+        width: 30vw;
     }
 }
