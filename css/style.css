@@ -70,8 +70,9 @@ nav {
     display: flex;
     flex-direction: column;
     margin-top: -8%;
-    margin-left: 12%;
-    margin-right: 12%;
+    margin-left: 15%;
+    margin-right: 15%;
+    margin-bottom: 10%;
 }
 
 .entrada img {
@@ -80,7 +81,7 @@ nav {
 }
 
 .entrada p {
-    font-size: 0.9vw;
+    font-size: 1vw;
     font-weight: 800;
     color: #1D3557;
     letter-spacing: 2.33679px;
