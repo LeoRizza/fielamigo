@@ -17,6 +17,7 @@ nav {
 
 .navbar2 {
     padding-bottom: 0;
+    padding-top: 0;
 }
 
 .logo {
@@ -32,9 +33,11 @@ nav {
     letter-spacing: 0.3em;
     color: #F1FAEE;
     text-transform: uppercase;
+    transition: transform .2s ease-in-out;
 }
 
 .nav-link:hover {
+    transform: scale(1.1);
     color: #F1FAEE;
     background: linear-gradient(180deg, rgba(230, 57, 70, 0.4) 20%, rgba(230, 57, 70, 0.2) 40%, rgba(255, 255, 255, 0) 90%);
     border-radius: 15px;
@@ -95,6 +98,22 @@ nav {
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='5 0 20 30'%3e%3cpath stroke='rgba%28255, 255, 255, 1%29' stroke-linecap='round' stroke-miterlimit='15' stroke-width='3' d='M3 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
 }
 
+.perroGato {
+    position: absolute;
+    left: 77%;
+    top: 40%;
+    max-width: 140px;
+    max-height: 140px;
+    transition: transform .2s ease-in-out;
+}
+
+.perroGato:hover {
+    transform: scale(1.2);
+    background: radial-gradient(50% 50% at 50% 50%, rgba(69, 123, 157, 0.5) 42.19%, rgba(69, 123, 157, 0) 100%);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
 .botonAdopta {
     letter-spacing: 4.83679px;
     font-weight: 600;
@@ -109,6 +128,7 @@ nav {
     top: 50%;
     right: 10%;
     padding: 1% 1.5%;
+    transition: transform .2s ease-in-out;
 }
 
 .botonAdopta:hover {
@@ -133,6 +153,7 @@ nav {
     top: 50%;
     right: 75%;
     padding: 1% 1.5%;
+    transition: transform .2s ease-in-out;
 }
 
 .botonTransita:hover {
