@@ -21,9 +21,10 @@ nav {
 
 .logo {
     width: 18vw;
-    margin-left: 15%;
+    margin-left: 25%;
     padding: 0;
-    margin: 0;
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
 .linkNav {
@@ -31,7 +32,12 @@ nav {
     letter-spacing: 0.3em;
     color: #F1FAEE;
     text-transform: uppercase;
-    padding: 0;
+}
+
+.nav-link:hover {
+    color: #F1FAEE;
+    background: linear-gradient(180deg, rgba(230, 57, 70, 0.4) 20%, rgba(230, 57, 70, 0.2) 40%, rgba(255, 255, 255, 0) 90%);
+    border-radius: 15px;
 }
 
 
@@ -46,11 +52,15 @@ nav {
 }
 
 .navegador li {
-    padding: 0 0.3em;
+    padding: 0 0.2vw;
 }
 
-.portada img {
-    width: 100vw;
+.portada img{
+    width: 100%;
+}
+
+.imges img{
+    width: 100%;
 }
 
 .entrada {
@@ -63,11 +73,11 @@ nav {
 
 .entrada img {
     padding-left: 2vw;
-    width: 25vw;
+    width: 20vw;
 }
 
 .entrada p {
-    font-size: 1vw;
+    font-size: 0.9vw;
     font-weight: 800;
     color: #1D3557;
     letter-spacing: 2.33679px;
@@ -85,6 +95,53 @@ nav {
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='5 0 20 30'%3e%3cpath stroke='rgba%28255, 255, 255, 1%29' stroke-linecap='round' stroke-miterlimit='15' stroke-width='3' d='M3 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
 }
 
+.botonAdopta {
+    letter-spacing: 4.83679px;
+    font-weight: 600;
+    font-size: 3vw;
+    line-height: 4vw;
+    background: linear-gradient(180deg, rgba(29, 53, 87, 0.4) 37.98%, rgba(29, 53, 87, 0.2) 83.85%, rgba(29, 53, 87, 0.1) 100%);
+    border: 0.2vw solid #1D3557;
+    filter: drop-shadow(0px 13px 19px #00000012);
+    border-radius: 15px;
+    color: #E63946;
+    position: absolute;
+    top: 50%;
+    right: 10%;
+    padding: 1% 1.5%;
+}
+
+.botonAdopta:hover {
+    background-color: rgba(29, 53, 87, 0.2) 83.85%;
+    transform: scale(1.1);
+    color: #E63946;
+    border: #1D3557 solid 3px;
+}
+
+.botonTransita {
+    letter-spacing: 4.83679px;
+    font-weight: 600;
+    font-size: 3vw;
+    line-height: 4vw;
+    border-radius: 15px;
+    color: #1D3557;
+    background: linear-gradient(180deg, rgba(230, 57, 70, 0.4) 24.48%, rgba(230, 57, 70, 0.2) 52.08%, rgba(255, 255, 255, 0) 80.73%);
+    border: 0.2vw solid #a1282f;
+    filter: drop-shadow(0px 13px 19px rgba(0, 0, 0, 0.07));
+    border-radius: 15px;
+    position: absolute;
+    top: 50%;
+    right: 75%;
+    padding: 1% 1.5%;
+}
+
+.botonTransita:hover {
+    background-color: rgba(29, 53, 87, 0.2) 83.85%;
+    transform: scale(1.1);
+    color: #1D3557;
+    border: #a1282f solid 3px;
+}
+
 @media (max-width: 600px) {
     .logo {
         width: 40vw;
@@ -92,7 +149,8 @@ nav {
 
     .linkNav {
         font-size: 2vw;
-        padding-top: 0.5em;
+        padding-top: 1.2em;
+        text-align: center;
     }
 
     .navegador {
@@ -105,12 +163,22 @@ nav {
     .navbar2 {
         padding: 0;
     }
+
+    .entrada img {
+        width: 35vw;
+    }
+
+    .entrada p {
+        font-size: 0.8em;
+    }
+
 }
 
 @media (max-width: 991px) and (min-width: 601px) {
     .linkNav {
         font-size: 2vw;
-        padding-top: 0.5em;
+        padding-top: 1.2em;
+        text-align: center;
     }
 
     .navegador {
@@ -118,6 +186,7 @@ nav {
         justify-content: center;
         border-top: solid 0.2em #a1282f;
         margin: 0;
+        padding-bottom: 0.5em;
     }
 
     .navbar2 {
@@ -125,6 +194,14 @@ nav {
     }
 
     .logo {
-        width: 30vw;
+        width: 25vw;
+    }
+
+    .entrada img {
+        width: 35vw;
+    }
+
+    .entrada p {
+        font-size: 0.8em;
     }
 }
