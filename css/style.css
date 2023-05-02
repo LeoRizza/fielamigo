@@ -11,6 +11,10 @@ nav {
     padding: 1em;
 }
 
+main {
+    padding: 0 15%;
+}
+
 .navbar {
     padding: 0;
 }
@@ -127,7 +131,7 @@ nav {
     color: #E63946;
     position: absolute;
     top: 50%;
-    right: 10%;
+    right: 7%;
     padding: 1% 1.5%;
     transition: transform .2s ease-in-out;
 }
@@ -152,7 +156,7 @@ nav {
     border-radius: 15px;
     position: absolute;
     top: 50%;
-    right: 75%;
+    right: 70%;
     padding: 1% 1.5%;
     transition: transform .2s ease-in-out;
 }

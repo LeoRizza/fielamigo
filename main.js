@@ -1,4 +1,4 @@
-function autenticar() {
+const autenticar = () => {
     let nombreUsuario = prompt("Ingrese su nombre de usuario:");
     if (nombreUsuario === "Admin89") {
         let contrasena = prompt("Ingrese su contraseña:");
@@ -12,7 +12,21 @@ function autenticar() {
         alert("Usuario inexistente.");
         return false;
     }
-}
+};
+
+const autenticarBtn = document.getElementById('autenticarBtn');
+autenticarBtn.addEventListener('click', () => {
+    if (autenticar()) {
+        return mostrarMenu();
+    }
+});
+
+const rescatadosBtn = document.getElementById('rescatadosBtn');
+rescatadosBtn.addEventListener('click', () => {
+  console.log(listaRescatados);
+});
+
+let listaRescatados = [];
 
 class Mascota {
     constructor(nombre, especie, edad, sexo, color, numero) {
@@ -26,9 +40,10 @@ class Mascota {
 }
 
 let listaAnimales = [];
+
 let numeroMascota = 1;
 
-function agregarMascota() {
+const agregarMascota = () => {
     let nombre = prompt("Ingrese el nombre de la Mascota:");
     let especie = prompt("Ingrese la especie de la Mascota:");
     let edad = prompt("Ingrese la edad de la Mascota:");
@@ -36,16 +51,18 @@ function agregarMascota() {
     let color = prompt("Ingrese el color:");
     let numero = numeroMascota;
     numeroMascota++; // sumamos un numero para la siguiente mascota.
-    let nuevoMascota = new Mascota(nombre, especie, edad, sexo, color, numero);
-    listaAnimales.push(nuevoMascota);
-}
+    let nuevaMascota = new Mascota(nombre, especie, edad, sexo, color, numero);
+    listaAnimales.push(nuevaMascota);
+};
 
-function eliminarMascota() {
-    let numero = prompt("Ingrese el numero de Mascota a eliminar:");
+
+const mascotaRescatada = () => {
+    let numero = prompt("Ingrese el numero de Mascota rescatada:");
     let finder = false;
     for (let i = 0; i < listaAnimales.length; i++) {
         if (listaAnimales[i].numero == numero) {
-            listaAnimales.splice(i, 1);
+            const mascotaRescatada = listaAnimales.splice(i, 1)[0];
+            listaRescatados.push(mascotaRescatada);
             finder = true;
             break;
         }
@@ -53,9 +70,10 @@ function eliminarMascota() {
     if (!finder) {
         alert("No se encontró ninguna Mascota con ese numero.");
     }
-}
+    console.log(listaRescatados)
+};
 
-function mostrarMascotas() {
+const mostrarMascotas = () => {
     let mensaje = "\nLista de Mascotas:\n\n";
     for (let i = 0; i < listaAnimales.length; i++) {
         mensaje += `Nombre: ${listaAnimales[i].nombre}\n`;
@@ -66,30 +84,22 @@ function mostrarMascotas() {
         mensaje += `Número: ${listaAnimales[i].numero}\n\n`;
     }
     alert(mensaje);
-}
+};
 
-const autenticarBtn = document.getElementById('autenticarBtn');
-autenticarBtn.addEventListener('click', function () {
-    if (autenticar()) {
-        return mostrarMenu();
-        ;
-    }
-});
-
-function mostrarMenu() {
+const mostrarMenu = () => {
     let opcion = "";
     while (opcion !== "4") {
         opcion = prompt(`Escriba el numero de la opcion a elegir:
-    1. Agregar Mascota
-    2. Eliminar Mascota
-    3. Mostrar lista de Mascotas
-    4. Salir`);
+      1. Agregar Mascota
+      2. A lista de Rescatado
+      3. Mostrar lista de Mascotas
+      4. Salir`);
         switch (opcion) {
             case "1":
                 agregarMascota();
                 break;
             case "2":
-                eliminarMascota();
+                mascotaRescatada();
                 break;
             case "3":
                 mostrarMascotas();
@@ -102,4 +112,4 @@ function mostrarMenu() {
                 break;
         }
     }
-}
+};
