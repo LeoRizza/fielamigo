@@ -23,7 +23,7 @@ autenticarBtn.addEventListener('click', () => {
 
 const rescatadosBtn = document.getElementById('rescatadosBtn');
 rescatadosBtn.addEventListener('click', () => {
-  console.log(listaRescatados);
+    console.log(listaRescatados);
 });
 
 let listaRescatados = [];
@@ -53,6 +53,41 @@ const agregarMascota = () => {
     numeroMascota++; // sumamos un numero para la siguiente mascota.
     let nuevaMascota = new Mascota(nombre, especie, edad, sexo, color, numero);
     listaAnimales.push(nuevaMascota);
+};
+
+const modificarMascota = () => {
+    let numero = prompt("Ingrese el numero de Mascota a modificar:");
+    let finder = false;
+    for (let i = 0; i < listaAnimales.length; i++) {
+        if (listaAnimales[i].numero == numero) {
+            let opcion = prompt(`Ingrese el número de la opción que desea modificar:\n 1-Nombre \n 2-Especie \n 3-Edad \n 4-Sexo \n 5-Color`);
+            switch (opcion) {
+                case '1':
+                    listaAnimales[i].nombre = prompt("Ingrese el nuevo nombre:");
+                    break;
+                case '2':
+                    listaAnimales[i].especie = prompt("Ingrese la nueva especie:");
+                    break;
+                case '3':
+                    listaAnimales[i].edad = prompt("Ingrese la nueva edad:");
+                    break;
+                case '4':
+                    listaAnimales[i].sexo = prompt("Ingrese el nuevo sexo:");
+                    break;
+                case '5':
+                    listaAnimales[i].color = prompt("Ingrese el nuevo color:");
+                    break;
+                default:
+                    alert("Opción inválida");
+                    break;
+            }
+            finder = true;
+            break;
+        }
+    }
+    if (!finder) {
+        alert("No se encontró ninguna Mascota con ese numero.");
+    }
 };
 
 
@@ -88,12 +123,13 @@ const mostrarMascotas = () => {
 
 const mostrarMenu = () => {
     let opcion = "";
-    while (opcion !== "4") {
+    while (opcion !== "5") {
         opcion = prompt(`Escriba el numero de la opcion a elegir:
       1. Agregar Mascota
-      2. A lista de Rescatado
-      3. Mostrar lista de Mascotas
-      4. Salir`);
+      2. Fue rescatado
+      3. Modificar Mascota
+      4. Mostrar lista de Mascotas
+      5. Salir`);
         switch (opcion) {
             case "1":
                 agregarMascota();
@@ -102,9 +138,12 @@ const mostrarMenu = () => {
                 mascotaRescatada();
                 break;
             case "3":
-                mostrarMascotas();
+                modificarMascota();
                 break;
             case "4":
+                mostrarMascotas();
+                break;
+            case "5":
                 alert("Sesion cerrada");
                 break;
             default:
