@@ -23,7 +23,7 @@ autenticarBtn.addEventListener('click', () => {
 
 const rescatadosBtn = document.getElementById('rescatadosBtn');
 rescatadosBtn.addEventListener('click', () => {
-    console.log(listaRescatados);
+    console.log(listaAnimalesparseado);
 });
 
 let listaRescatados = [];
@@ -42,6 +42,18 @@ class Mascota {
 let listaAnimales = [];
 
 let numeroMascota = 1;
+
+//-------------------------------------------------//
+
+const listaAnimalesJSON = JSON.stringify(listaAnimales)
+
+localStorage.setItem("porRescatar", listaAnimalesJSON)
+
+const listaAnimalesLocalStorage = localStorage.getItem("porRescatar")
+
+const listaAnimalesparseado = JSON.parse(listaAnimalesLocalStorage)
+
+//-------------------------------------------------//
 
 const agregarMascota = () => {
     let nombre = prompt("Ingrese el nombre de la Mascota:");
