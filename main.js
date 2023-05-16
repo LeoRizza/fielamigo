@@ -1,23 +1,90 @@
+/* const contacta = document.getElementById("contacta");
+
+contacta.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    let nombre = document.getElementById("nombre").value;
+    let email = document.getElementById("email").value;
+    let celular = document.getElementById("celular").value;
+    let mensaje = document.getElementById("mensaje").value;
+
+})
+
+const consulta = document.getElementById("consulta");
+consulta.addEventListener("click", () => {
+    Swal.fire("Consulta Enviada");
+
+    const nombre = document.getElementById("nombre");
+    const celular = document.getElementById("celular");
+    const email = document.getElementById("email");
+    const mensaje = document.getElementById("mensaje");
+
+    const consulta2 = {
+        nombre: nombre.value,
+        celular: celular.value,
+        email: email.value,
+        mensaje: mensaje.value,
+    }
+
+    localStorage.setItem("consulta2", JSON.stringify(consulta2));
+})
+ */
+
+//-------------------------------------------------//
+
+/* const listaAnimalesJSON = JSON.stringify(listaAnimales)
+
+localStorage.setItem("porRescatar", listaAnimalesJSON)
+
+const listaAnimalesLocalStorage = localStorage.getItem("porRescatar")
+
+const listaAnimalesparseado = JSON.parse(listaAnimalesLocalStorage) */
+
+//-------------------------------------------------//
+
 const autenticar = () => {
-    let nombreUsuario = prompt("Ingrese su nombre de usuario:");
+    const usuarioInput = document.getElementById('usuario');
+    const passwordInput = document.getElementById('password');
+    const nombreUsuario = usuarioInput.value;
+    const contrasena = passwordInput.value;
+
     if (nombreUsuario === "Admin89") {
-        let contrasena = prompt("Ingrese su contraseña:");
         if (contrasena === "pass999") {
+            Swal.fire({
+                icon: 'success',
+                title: '¡Ingreso exitoso!',
+                toast: true,
+                position: 'bottom-end',
+                showConfirmButton: false,
+                timer: 2000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                    toast.addEventListener('mouseenter', Swal.stopTimer);
+                    toast.addEventListener('mouseleave', Swal.resumeTimer);
+                }
+            });
             return true;
         } else {
-            alert("Contraseña incorrecta.");
+            Swal.fire({
+                icon: "error",
+                title: "Contraseña incorrecta.",
+            });
             return false;
         }
     } else {
-        alert("Usuario inexistente.");
+        Swal.fire({
+            icon: "error",
+            title: "Usuario inexistente.",
+        });
         return false;
     }
 };
 
-const autenticarBtn = document.getElementById('autenticarBtn');
-autenticarBtn.addEventListener('click', () => {
+const ingreso = document.getElementById('ingreso');
+ingreso.addEventListener('submit', (event) => {
+    event.preventDefault(); // Evita el envío del formulario k se recargue la pag
     if (autenticar()) {
-        return mostrarMenu();
+        mostrarMenu();
     }
 });
 
@@ -43,30 +110,65 @@ let listaAnimales = [];
 
 let numeroMascota = 1;
 
-//-------------------------------------------------//
+const agregarMascotaFromForm = () => {
+    const nombreInput = document.getElementById('nombreMascota');
+    const especieInput = document.getElementById('especieMascota');
+    const edadInput = document.getElementById('edadMascota');
+    const sexoInput = document.getElementById('sexoMascota');
+    const colorInput = document.getElementById('colorMascota');
 
-const listaAnimalesJSON = JSON.stringify(listaAnimales)
+    const nombre = nombreInput.value;
+    const especie = especieInput.value;
+    const edad = edadInput.value;
+    const sexo = sexoInput.value;
+    const color = colorInput.value;
+    const numero = numeroMascota;
 
-localStorage.setItem("porRescatar", listaAnimalesJSON)
+    numeroMascota++; // suma un número para la siguiente mascota.
 
-const listaAnimalesLocalStorage = localStorage.getItem("porRescatar")
+    let nuevaMascota = new Mascota(nombre, especie, edad, sexo, color, numero);
+    listaAnimales.push(nuevaMascota);
 
-const listaAnimalesparseado = JSON.parse(listaAnimalesLocalStorage)
+    // Restablecer los valores del formulario
+    nombreInput.value = '';
+    especieInput.value = '';
+    edadInput.value = '';
+    sexoInput.value = '';
+    colorInput.value = '';
 
-//-------------------------------------------------//
+    Swal.fire({
+        icon: 'success',
+        title: 'Mascota agregada con éxito.',
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+            toast.addEventListener('mouseenter', Swal.stopTimer);
+            toast.addEventListener('mouseleave', Swal.resumeTimer);
+        }
+    });
+};
 
-const agregarMascota = () => {
+const mostrarFormularioAgregarMascota = () => {
+    const agregarMascotaForm = document.getElementById('agregarMascotaForm');
+    agregarMascotaForm.style.display = 'block';
+};
+
+
+/* const agregarMascota = () => {
     let nombre = prompt("Ingrese el nombre de la Mascota:");
     let especie = prompt("Ingrese la especie de la Mascota:");
     let edad = prompt("Ingrese la edad de la Mascota:");
     let sexo = prompt("Ingrese el sexo de la Mascota: (M o H)");
     let color = prompt("Ingrese el color:");
     let numero = numeroMascota;
-    numeroMascota++; // sumamos un numero para la siguiente mascota.
+    numeroMascota++; // suma un numero para la siguiente mascota.
     let nuevaMascota = new Mascota(nombre, especie, edad, sexo, color, numero);
     listaAnimales.push(nuevaMascota);
 };
-
+ */
 const modificarMascota = () => {
     let numero = prompt("Ingrese el numero de Mascota a modificar:");
     let finder = false;
@@ -134,33 +236,22 @@ const mostrarMascotas = () => {
 };
 
 const mostrarMenu = () => {
-    let opcion = "";
-    while (opcion !== "5") {
-        opcion = prompt(`Escriba el numero de la opcion a elegir:
-      1. Agregar Mascota
-      2. Fue rescatado
-      3. Modificar Mascota
-      4. Mostrar lista de Mascotas
-      5. Salir`);
-        switch (opcion) {
-            case "1":
-                agregarMascota();
-                break;
-            case "2":
-                mascotaRescatada();
-                break;
-            case "3":
-                modificarMascota();
-                break;
-            case "4":
-                mostrarMascotas();
-                break;
-            case "5":
-                alert("Sesion cerrada");
-                break;
-            default:
-                alert("Opción no válida.");
-                break;
-        }
-    }
+    const ingresoForm = document.getElementById('ingreso');
+    ingresoForm.innerHTML = `
+        <div class="menu">
+            <button class="menuBtn" onclick="mostrarFormularioAgregarMascota()">Agregar Mascota</button>
+            <button class="menuBtn" onclick="mascotaRescatada()">Fue rescatado</button>
+            <button class="menuBtn" onclick="modificarMascota()">Modificar Mascota</button>
+            <button class="menuBtn" onclick="mostrarMascotas()">lista de Mascotas</button>
+            <button class="menuBtn" onclick="cerrarSesion()">Salir</button>
+        </div>
+    `;
+};
+
+const cerrarSesion = () => {
+    Swal.fire({
+        icon: "success",
+        title: "Sesion cerrada.",
+    });
+    location.reload();
 };

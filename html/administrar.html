@@ -8,14 +8,14 @@
     <title>Fiel Amigo</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 
 <body>
     <header class="navbar navbar-expand-lg">
         <nav class="container-fluid navbar2">
             <div>
-                <a class="navbar-brand" href="#index"><img src="./img/fielAmigoLogo.png" class="logo"
+                <a class="navbar-brand" href="#index"><img src="../img/fielAmigoLogo.png" class="logo"
                         alt="fiel Amigo Logo"></a>
             </div>
 
@@ -33,7 +33,7 @@
                         <a class="nav-link linkNav" id="rescatadosBtn" href="#Rescatados">Rescatados</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link linkNav" id="autenticarBtn" href="./html/administrar.html">Acceso</a>
+                        <a class="nav-link linkNav" id="autenticarBtn">Acceso</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link linkNav" href="#contacto">Contacto</a>
@@ -43,92 +43,55 @@
         </nav>
     </header>
 
-    <main>
-        <div class="main2">
-            <div class="portada img-fluid" style="position: relative;">
-                <img src="./img/Portada.png" alt="gatitos portada">
-            </div>
-            <div class="entrada">
-                <img class="img-fluid" src="./img/fielAmigoLogo.png" alt="logo fiel amigo">
-                <p>
-                    En <strong class="strongito">Amigo Fiel</strong>, nos dedicamos a facilitar la adopción de perros y
-                    gatos en situación de abandono o maltrato en la
-                    ciudad de Santa Fe.
-                    <br>
-                    A través de nuestra página web buscamos conectar a los animales en necesidad con personas que estén
-                    dispuestas a brindarles un hogar amoroso y seguro. Somos un medio entre rescatistas y personas que
-                    buscan dar un hogar amoroso a una mascota necesitada. Nuestra misión es conectar a estas dos partes
-                    de manera efectiva, para asegurarnos de que cada animal encuentre un hogar feliz y lleno de amor.
-                    ¡Únete a nosotros y ayuda a hacer una diferencia en la vida de estos animalitos!
-                    <br>
-                    Además, buscamos concientizar sobre la importancia de adoptar y no comprar animales, promoviendo una
-                    cultura de respeto y cuidado
-                    hacia los animales.
-                </p>
-            </div>
+    <main class="admin">
+        <div class="adminMenu">
+            <form id="ingreso">
+                <label>
+                    Usuario:
+                    <input class="form-control" type="text" id="usuario" name="usuario">
+                </label>
+            
+                <label>
+                    Contraseña:
+                    <input class=" form-control" type="password" id="password" name="password">
+                </label>
+            
+                <br>
+            
+                <button class="ingresarBtn" type="submit">Ingresar</button>
+            </form>
         </div>
-        <section class="conteiner-fluid" id="rescata">
-            <div class="imges" style="position: relative;">
-                <img class="img-fluid" src="./img/Adopta.jpg" alt="pareja levantando gato">
-                <a class="btn botonAdopta" href="#" role="button">Adopta</a>
-            </div>
-            <div class="imges" style="position: relative;">
-                <img class="img-fluid" src="./img/transita.jpg" alt="chica abrazando perro">
-                <a class="btn botonTransita" href="#" role="button">Transita</a>
-            </div>
-        </section>
-        <section class="conteiner-fluid" id="contacto">
-            <div class="contactoBanner">
-                <h2>Contacto</h2>
-            </div>
-            <div class="row contactoDiv">
-                <div class="col-6">
-                    <h4>Contacta con nosotros</h4>
-                    <form class="contactoForm" id="contacta">
-                        <label class="label2">
-                            Nombre:
-                            <input class="inputLoco form-control" type="text" id="nombre" name="nombre">
-                        </label>
-
-                        <label class="label2">
-                            Email:
-                            <input class="inputLoco form-control" type="email" id="email" name="email"
-                                autocomplete="email">
-                        </label>
-
-                        <label class="label2">
-                            Whatsapp:
-                            <input class="inputLoco form-control" type="tel" id="phone" name="phone" autocomplete="off">
-                        </label>
-
-                        <textarea class="inputLoco2 form-control" name="mensaje" id="mensaje" cols="30" rows="10"
-                            placeholder="Escriba su mensaje aquí"></textarea>
-
-                        <button class="menuBtn2" id="consulta"> Enviar </button>
-                    </form>
-                    <!-- <form id="contacta" class="contactoForm">
-                        <label for="nombre" class="label2">
-                            Nombre:
-                            <input class="inputLoco form-control" type="text" id="nombre">
-                        </label>
-                        <label for="email" class="label2">
-                            Email:
-                            <input class="inputLoco form-control" type="email" id="email">
-                        </label>
-                        <label for="celular" class="label2">
-                            Celular:
-                            <input class="inputLoco form-control" type="tel" id="celular">
-                        </label>
-                        <textarea for="mensaje" class="inputLoco2 form-control" id="mensaje" cols="30" rows="10"
-                            placeholder="Escriba su mensaje aquí"></textarea>
-                        <button class="menuBtn2" id="consulta"> Enviar </button>
-                    </form> -->
-                </div>
-                <div class="col-6 contactoDiv2">
-
-                </div>
-            </div>
-        </section>
+        <div id="agregarMascotaForm" style="display: none;">
+            <label>
+                Nombre:
+                <input class="form-control" type="text" id="nombreMascota" name="nombreMascota">
+            </label>
+        
+            <label>
+                Especie:
+                <input class="form-control" type="text" id="especieMascota" name="especieMascota">
+            </label>
+        
+            <label>
+                Edad:
+                <input class="form-control" type="number" id="edadMascota" name="edadMascota">
+            </label>
+        
+            <label>
+                Sexo:
+                <input class="form-control" type="text" id="sexoMascota" name="sexoMascota">
+            </label>
+        
+            <label>
+                Color:
+                <input class="form-control" type="text" id="colorMascota" name="colorMascota">
+            </label>
+        
+            <br>
+        
+            <button class="menuBtn2" onclick="agregarMascotaFromForm()">Agregar</button>
+        </div>
+        
     </main>
 
     <footer class="row m-0">
@@ -169,7 +132,7 @@
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
         crossorigin="anonymous"></script>
     <!--Mi js-->
-    <script src="main.js"></script>
+    <script src="../main.js"></script>
 </body>
 
 </html>
