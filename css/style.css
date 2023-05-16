@@ -13,6 +13,7 @@ nav {
 
 h4 {
     text-align: center;
+    color: #1D3557;
 }
 
 main {
@@ -191,7 +192,7 @@ main {
     flex-direction: column;
 }
 
-label {
+.label2 {
     padding: 1% 5%;
     display: flex;
     justify-content: space-between;
@@ -202,7 +203,7 @@ label {
 .inputLoco {
     margin-right: 10px;
     right: 0;
-    width: 480px;
+    width: 80%;
     opacity: 0.7;
     border-radius: 15px;
     border: #1d3557 solid 1px;
@@ -217,22 +218,6 @@ label {
     padding: 20px;
     font-size: 20px;
     resize: none;
-}
-
-/* Estilos para el scroll en Webkit (Chrome, Safari) */
-.inputLoco2::-webkit-scrollbar {
-    width: 12px;
-    /* Ancho del scroll */
-}
-
-.inputLoco2::-webkit-scrollbar-track {
-    background-color: blue;
-    /* Color de fondo del track del scroll */
-}
-
-.inputLoco2::-webkit-scrollbar-thumb {
-    background-color: red;
-    /* Color del thumb del scroll */
 }
 
 
