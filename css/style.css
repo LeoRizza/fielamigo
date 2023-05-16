@@ -11,6 +11,10 @@ nav {
     padding: 1em;
 }
 
+h4 {
+    text-align: center;
+}
+
 main {
     padding: 0 15%;
 }
@@ -195,14 +199,42 @@ label {
     margin-top: 2%;
 }
 
-input {
+.inputLoco {
     margin-right: 10px;
     right: 0;
-    width: 350px;
+    width: 480px;
     opacity: 0.7;
     border-radius: 15px;
     border: #1d3557 solid 1px;
+    padding-left: 20px;
 }
+
+.inputLoco2 {
+    margin-right: 10px;
+    opacity: 0.7;
+    border-radius: 15px;
+    border: #1d3557 solid 1px;
+    padding: 20px;
+    font-size: 20px;
+    resize: none;
+}
+
+/* Estilos para el scroll en Webkit (Chrome, Safari) */
+.inputLoco2::-webkit-scrollbar {
+    width: 12px;
+    /* Ancho del scroll */
+}
+
+.inputLoco2::-webkit-scrollbar-track {
+    background-color: blue;
+    /* Color de fondo del track del scroll */
+}
+
+.inputLoco2::-webkit-scrollbar-thumb {
+    background-color: red;
+    /* Color del thumb del scroll */
+}
+
 
 #mensaje {
     width: 88%;
@@ -213,6 +245,7 @@ input {
 
 .contactoDiv {
     margin-top: 5%;
+    padding-bottom: 5%;
     background-image: url(../img/imgBG.png);
     background-size: cover;
     background-position: center center;
@@ -226,6 +259,7 @@ footer {
     display: flex;
     justify-content: space-around;
 }
+
 .terminos {
     padding: 0 2%;
 }
@@ -235,7 +269,7 @@ footer {
     flex-direction: column;
     text-decoration: none;
     color: #f1faee;
-    padding-top: 4%;
+    padding-top: 8%;
 }
 
 .footer2 {
@@ -245,11 +279,15 @@ footer {
     justify-content: center;
 }
 
+.footer2:hover {
+    cursor: default;
+}
+
 .redes a {
     color: #f1faee;
 }
 
-.redes li { 
+.redes li {
     list-style-type: none;
     padding: 1% 8%;
 }
@@ -265,6 +303,19 @@ footer {
     color: #f1faee;
     text-align: center;
     font-weight: 800;
+}
+
+.redes h5:hover {
+    cursor: default;
+}
+
+.iconoRedes {
+    transition: transform 0.2s ease-in-out;
+    filter: drop-shadow(0px 13px 19px rgba(0, 0, 0, 0.07));
+}
+
+.iconoRedes:hover {
+    transform: scale(1.3);
 }
 
 
