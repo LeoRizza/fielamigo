@@ -42,7 +42,10 @@ const enviarConsulta = (event) => {
     celularInput.value = '';
     mensajeInput.value = '';
 
-    alert('Consulta guardado correctamente');
+    Swal.fire({
+        icon: "success",
+        title: "Consulta recibida.",
+    });
 };
 
 formularioContacta.addEventListener('submit', enviarConsulta);
