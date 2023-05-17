@@ -1,30 +1,48 @@
-const contacta = document.getElementById("contacta");
+const formularioContacta = document.getElementById('contacta');
+const nombreInput = document.getElementById('nombre');
+const emailInput = document.getElementById('email');
+const celularInput = document.getElementById('celular');
+const mensajeInput = document.getElementById('mensaje');
+const enviarBtn = document.getElementById('consulta');
 
-contacta.addEventListener("submit", (e) => {
-    e.preventDefault();
+const obtenerConsultasLocalStorage = () => {
+    const consultasJSON = localStorage.getItem('consultas');
 
-    let nombre = document.getElementById("nombre").value;
-    let email = document.getElementById("email").value;
-    let celular = document.getElementById("celular").value;
-    let mensaje = document.getElementById("mensaje").value;
-
-})
-
-const consulta = document.getElementById("consulta");
-consulta.addEventListener("click", () => {
-    Swal.fire("Consulta Enviada");
-
-    const nombre = document.getElementById("nombre");
-    const celular = document.getElementById("celular");
-    const email = document.getElementById("email");
-    const mensaje = document.getElementById("mensaje");
-
-    const consulta2 = {
-        nombre: nombre.value,
-        celular: celular.value,
-        email: email.value,
-        mensaje: mensaje.value,
+    if (consultasJSON) {
+        return JSON.parse(consultasJSON);
+    } else {
+        return [];
     }
+};
 
-    localStorage.setItem("consulta2", JSON.stringify(consulta2));
-})
+const guardarConsultasLocalStorage = (consultas) => {
+    const consultasJSON = JSON.stringify(consultas);
+
+    localStorage.setItem('consultas', consultasJSON);
+};
+
+const enviarConsulta = (event) => {
+    event.preventDefault();
+
+    const consultas = obtenerConsultasLocalStorage();
+
+    const nuevoConsulta = {
+        nombre: nombreInput.value,
+        email: emailInput.value,
+        celular: celularInput.value,
+        mensaje: mensajeInput.value,
+    };
+
+    consultas.push(nuevoConsulta);
+
+    guardarConsultasLocalStorage(consultas);
+
+    nombreInput.value = '';
+    emailInput.value = '';
+    celularInput.value = '';
+    mensajeInput.value = '';
+
+    alert('Consulta guardado correctamente');
+};
+
+formularioContacta.addEventListener('submit', enviarConsulta);
