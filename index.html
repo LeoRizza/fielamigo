@@ -15,7 +15,7 @@
     <header class="navbar navbar-expand-lg">
         <nav class="container-fluid navbar2">
             <div>
-                <a class="navbar-brand" href="#index"><img src="./img/fielAmigoLogo.png" class="logo"
+                <a class="navbar-brand" href="./index.html"><img src="./img/fielAmigoLogo.png" class="logo"
                         alt="fiel Amigo Logo"></a>
             </div>
 
@@ -33,7 +33,7 @@
                         <a class="nav-link linkNav" id="rescatadosBtn" href="#Rescatados">Rescatados</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link linkNav" id="autenticarBtn" href="./html/administrar.html">Acceso</a>
+                        <a class="nav-link linkNav" id="autenticarBtn">Acceso</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link linkNav" href="#contacto">Contacto</a>
@@ -44,6 +44,28 @@
     </header>
 
     <main>
+        <div id="formularioIngreso" style="display: none;">
+            <button class="cerrarButn" id="cerrarBtn" type="button"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" class="bi bi-x"
+                viewBox="0 0 16 16">
+                <path
+                    d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
+            </svg></button>
+            <form id="ingreso">
+                <label>
+                    Usuario:
+                    <input class="form-control" type="text" id="usuario" name="usuario">
+                </label>
+
+                <label>
+                    Contraseña:
+                    <input class="form-control" type="password" id="password" name="password">
+                </label>
+
+                <br>
+
+                <button class="ingresarBtn" type="submit">Ingresar</button>
+            </form>
+        </div>
         <div class="main2">
             <div class="portada img-fluid" style="position: relative;">
                 <img src="./img/Portada.png" alt="gatitos portada">
@@ -84,30 +106,6 @@
             <div class="row contactoDiv">
                 <div class="col-6">
                     <h4>Contacta con nosotros</h4>
-                    <!--                     
-                    <form class="contactoForm" id="contacta">
-                        <label class="label2">
-                            Nombre:
-                            <input class="inputLoco form-control" type="text" id="nombre" name="nombre">
-                        </label>
-
-                        <label class="label2">
-                            Email:
-                            <input class="inputLoco form-control" type="email" id="email" name="email"
-                                autocomplete="email">
-                        </label>
-
-                        <label class="label2">
-                            Whatsapp:
-                            <input class="inputLoco form-control" type="tel" id="phone" name="phone" autocomplete="off">
-                        </label>
-
-                        <textarea class="inputLoco2 form-control" name="mensaje" id="mensaje" cols="30" rows="10"
-                            placeholder="Escriba su mensaje aquí"></textarea>
-
-                        <button class="menuBtn2" id="consulta"> Enviar </button>
-                    </form>
- -->
                     <form id="contacta" class="contactoForm">
                         <label for="nombre" class="label2">
                             Nombre:
@@ -171,7 +169,7 @@
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
         crossorigin="anonymous"></script>
     <!--Mi js-->
-    <script src="index.js"></script>
+    <script src="main.js"></script>
 </body>
 
 </html>

@@ -5,8 +5,46 @@ body {
     font-family: "Roboto", sans-serif;
 }
 
+/* -------------------------------------------------------------- */
+/* ---------------------------Main------------------------------ */
+/* -------------------------------------------------------------- */
+
 main {
     padding: 0 15%;
+    position: relative;
+}
+
+#formularioIngreso {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    top: 0;
+    padding: 4rem 2rem;
+    background-color: #457B9D;
+    color: #f1faee;
+    font-weight: 800;
+    opacity: 0.8;
+    z-index: 3;
+    text-align: center;
+}
+
+#formularioIngreso form {
+    display: flex;
+    flex-direction: column;
+    position: sticky;
+}
+
+#formularioIngreso form label{
+    padding-top: 2rem;
+}
+
+.cerrarButn {
+    background-color: transparent;
+    border: none;
+    color: #f1faee;
+    padding: 0;
+    display: flex;
+    justify-content: end;
 }
 
 /* -------------------------------------------------------------- */
@@ -46,7 +84,7 @@ main {
     margin-top: 2em;
     margin-bottom: 1em;
     padding: 2% 5%;
-    background-color: #457B9D;
+    background-color: #1D3557;
     border: 2px solid #a1282f;
     color: #f1faee;
     font-weight: 900;
@@ -67,7 +105,7 @@ main {
     border-radius: 10px;
     margin: 2%;
     padding: 5%;
-    width: 150%;
+    width: 100%;
 }
 
 .menuBtn2 {

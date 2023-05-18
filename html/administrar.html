@@ -15,7 +15,7 @@
     <header class="navbar navbar-expand-lg">
         <nav class="container-fluid navbar2">
             <div>
-                <a class="navbar-brand" href="#index"><img src="../img/fielAmigoLogo.png" class="logo"
+                <a class="navbar-brand" href="../index.html"><img src="../img/fielAmigoLogo.png" class="logo"
                         alt="fiel Amigo Logo"></a>
             </div>
 
@@ -36,60 +36,52 @@
                         <a class="nav-link linkNav" id="autenticarBtn">Acceso</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link linkNav" href="#contacto">Contacto</a>
+                        <a class="nav-link linkNav" id="login" href="#contacto">Contacto</a>
                     </li>
                 </ul>
             </div>
         </nav>
     </header>
 
-    <main class="admin">
-        <div class="adminMenu">
-            <form id="ingreso">
+    <main class="admin row">
+        <div class="menu col-3">
+            <button class="menuBtn" onclick="agregarMascotaMostrar()">Agregar Mascota</button>
+            <button class="menuBtn" onclick="mascotaRescatada()">Fue rescatado</button>
+            <button class="menuBtn" onclick="modificarMascota()">Modificar Mascota</button>
+            <button class="menuBtn" onclick="mostrarMascotas()">lista de Mascotas</button>
+            <button class="menuBtn" onclick="cerrarSesion()">Salir</button>
+        </div>        
+        <div class="col-9">
+            <div id="agregarMascotaForm" style="display: none;">
                 <label>
-                    Usuario:
-                    <input class="form-control" type="text" id="usuario" name="usuario">
+                    Nombre:
+                    <input class="form-control" type="text" id="nombreMascota" name="nombreMascota">
                 </label>
             
                 <label>
-                    Contraseña:
-                    <input class=" form-control" type="password" id="password" name="password">
+                    Especie:
+                    <input class="form-control" type="text" id="especieMascota" name="especieMascota">
+                </label>
+            
+                <label>
+                    Edad:
+                    <input class="form-control" type="number" id="edadMascota" name="edadMascota">
+                </label>
+            
+                <label>
+                    Sexo:
+                    <input class="form-control" type="text" id="sexoMascota" name="sexoMascota">
+                </label>
+            
+                <label>
+                    Color:
+                    <input class="form-control" type="text" id="colorMascota" name="colorMascota">
                 </label>
             
                 <br>
             
-                <button class="ingresarBtn" type="submit">Ingresar</button>
-            </form>
-        </div>
-        <div id="agregarMascotaForm" style="display: none;">
-            <label>
-                Nombre:
-                <input class="form-control" type="text" id="nombreMascota" name="nombreMascota">
-            </label>
-        
-            <label>
-                Especie:
-                <input class="form-control" type="text" id="especieMascota" name="especieMascota">
-            </label>
-        
-            <label>
-                Edad:
-                <input class="form-control" type="number" id="edadMascota" name="edadMascota">
-            </label>
-        
-            <label>
-                Sexo:
-                <input class="form-control" type="text" id="sexoMascota" name="sexoMascota">
-            </label>
-        
-            <label>
-                Color:
-                <input class="form-control" type="text" id="colorMascota" name="colorMascota">
-            </label>
-        
-            <br>
-        
-            <button class="menuBtn2" onclick="agregarMascotaFromForm()">Agregar</button>
+                <button class="menuBtn2" onclick="agregarMascotaFromForm()">Agregar</button>
+            </div>
         </div>
         
     </main>
