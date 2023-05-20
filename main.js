@@ -29,7 +29,7 @@ const autenticar = (event) => {
             }
         });
         setTimeout(() => {
-            window.location.href = "../html/administrar.html";
+            window.location.href = "./html/administrar.html";
         }, 1000);
     } else {
         if (nombreUsuario !== "Admin89") {
