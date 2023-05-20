@@ -1,3 +1,11 @@
+window.addEventListener('DOMContentLoaded', () => {
+    const listaAnimalesJSON = localStorage.getItem('listaAnimales');
+    if (listaAnimalesJSON) {
+        listaAnimales = JSON.parse(listaAnimalesJSON);
+        numeroMascota = listaAnimales.length + 1;
+    }
+});
+
 const autenticar = (event) => {
     event.preventDefault(); // Evitar el envío del formulario
 
