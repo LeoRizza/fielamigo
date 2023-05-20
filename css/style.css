@@ -95,6 +95,7 @@ main {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    margin: 8% 0;
 }
 
 .menuBtn {
@@ -120,13 +121,19 @@ main {
 }
 
 #agregarMascotaForm {
+    display: flex;
     flex-direction: column;
+    justify-content: center;
     text-align: center;
-    justify-content: space-between;
 }
 
-#agregarMascotaForm input{
-    width: 100%;
+#agregarMascotaForm label {
+    margin-top: 1em;
+}
+
+#agregarMascotaForm label input{
+    margin-left: 25%;
+    width: 50%;
 }
 
 /* -------------------------------------------------------------- */
