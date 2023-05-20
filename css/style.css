@@ -63,23 +63,6 @@ main {
     padding: 0;
 }
 
-.adminMenu {
-    display: flex;
-    justify-content: center;
-}
-
-.admin label {
-    margin-top: 2em;
-    width: 50%;
-    font-size: 1.5em;
-    font-weight: 900;
-    color: #1D3557;
-}
-
-.admin label input {
-    border-color: #457B9D;
-}
-
 .ingresarBtn {
     margin-top: 2em;
     margin-bottom: 1em;
@@ -96,6 +79,12 @@ main {
     flex-direction: column;
     justify-content: center;
     margin: 8% 0;
+}
+
+.menu2 {
+    display: flex;
+    justify-content: center;
+    text-align: center;
 }
 
 .menuBtn {
@@ -116,15 +105,14 @@ main {
     color: #f1faee;
     font-weight: 900;
     border-radius: 10px;
-    margin: 2%;
-    padding: 1%;
+    padding: 2%;
 }
 
 #agregarMascotaForm {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    text-align: center;
+    align-items: center;
 }
 
 #agregarMascotaForm label {
@@ -132,8 +120,7 @@ main {
 }
 
 #agregarMascotaForm label input{
-    margin-left: 25%;
-    width: 50%;
+    width: 20em;
 }
 
 /* -------------------------------------------------------------- */
