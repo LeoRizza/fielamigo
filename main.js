@@ -73,9 +73,9 @@ class Mascota {
     }
 }
 
-let listaAnimales = [];
+const listaAnimales = [];
 
-let numeroMascota = 1;
+const numeroMascota = 1;
 
 const mostrarMascotas = () => {
     let mensaje = "\nLista de Mascotas:\n\n";
@@ -89,6 +89,8 @@ const mostrarMascotas = () => {
     }
     alert(mensaje);
 };
+
+//---------------------------------------------//
 
 const mascotaRescatada = () => {
     let numero = prompt("Ingrese el número de Mascota rescatada: ");
@@ -185,6 +187,7 @@ const agregarMascotaFromForm = () => {
     const listaAnimalesJSON = JSON.stringify(listaAnimales)
 
     localStorage.setItem("porRescatar", listaAnimalesJSON)
+
 };
 
 function agregarMascotaMostrar() {
