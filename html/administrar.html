@@ -43,50 +43,48 @@
         </nav>
     </header>
 
-    <main class="admin row">
-        <div class="menu col-3">
-            <button class="menuBtn" onclick="agregarMascotaMostrar()">Agregar Mascota</button>
-            <button class="menuBtn" onclick="mascotaRescatada()">Fue rescatado</button>
-            <button class="menuBtn" onclick="modificarMascota()">Modificar Mascota</button>
-            <button class="menuBtn" onclick="mostrarMascotas()">lista de Mascotas</button>
-            <button class="menuBtn" onclick="cerrarSesion()">Salir</button>
-        </div>        
-        <div class="col-9">
-            <div id="agregarMascotaForm" style="display: none;">
-                <label>
-                    Nombre:
-                    <input class="form-control" type="text" id="nombreMascota" name="nombreMascota">
-                </label>
-            
-                <label>
-                    Especie:
-                    <input class="form-control" type="text" id="especieMascota" name="especieMascota">
-                </label>
-            
-                <label>
-                    Edad:
-                    <input class="form-control" type="number" id="edadMascota" name="edadMascota">
-                </label>
-            
-                <label>
-                    Sexo:
-                    <input class="form-control" type="text" id="sexoMascota" name="sexoMascota">
-                </label>
-            
-                <label>
-                    Color:
-                    <input class="form-control" type="text" id="colorMascota" name="colorMascota">
-                </label>
-            
-                <br>
-            
-                <button class="menuBtn2" onclick="agregarMascotaFromForm()">Agregar</button>
+    <main>
+        <div class="admin row">
+            <div class="menu col-3">
+                <button class="menuBtn" onclick="agregarMascotaMostrar()">Agregar Mascota</button>
+                <button class="menuBtn" onclick="mascotaRescatada()">Fue rescatado</button>
+                <button class="menuBtn" onclick="modificarMascota()">Modificar Mascota</button>
+                <button class="menuBtn" onclick="mostrarMascotas()">lista de Mascotas</button>
+                <button class="menuBtn" onclick="cerrarSesion()">Salir</button>
             </div>
-            <div id="listadoRescatar" style="display: none;">
+            <div class="col-9">
+                <div id="agregarMascotaForm">
+                    <label>
+                        Nombre:
+                        <input class="form-control" type="text" id="nombreMascota" name="nombreMascota">
+                    </label>
 
+                    <label>
+                        Especie:
+                        <input class="form-control" type="text" id="especieMascota" name="especieMascota">
+                    </label>
+
+                    <label>
+                        Edad:
+                        <input class="form-control" type="number" id="edadMascota" name="edadMascota">
+                    </label>
+
+                    <label>
+                        Sexo:
+                        <input class="form-control" type="text" id="sexoMascota" name="sexoMascota">
+                    </label>
+
+                    <label>
+                        Color:
+                        <input class="form-control" type="text" id="colorMascota" name="colorMascota">
+                    </label>
+
+                    <br>
+
+                    <button class="menuBtn2" onclick="agregarMascotaFromForm()">Agregar</button>
+                </div>
             </div>
         </div>
-        
     </main>
 
     <footer class="row m-0">
