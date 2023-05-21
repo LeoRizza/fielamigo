@@ -19,13 +19,12 @@ main {
     bottom: 0;
     right: 0;
     top: 0;
-    padding: 4rem 2rem;
+    padding: 2rem 2rem;
     background-color: #457B9D;
     color: #f1faee;
     font-weight: 800;
-    opacity: 0.8;
+    opacity: 0.7;
     z-index: 3;
-    text-align: center;
 }
 
 #formularioIngreso form {
@@ -36,15 +35,15 @@ main {
 
 #formularioIngreso form label{
     padding-top: 2rem;
+    text-align: center;
 }
 
 .cerrarButn {
     background-color: transparent;
     border: none;
     color: #f1faee;
-    padding: 0;
-    display: flex;
-    justify-content: end;
+    padding-left: 80%;
+    margin: 0;
 }
 
 /* -------------------------------------------------------------- */
@@ -55,7 +54,7 @@ main {
     display: flex;
     align-items: center;
     justify-content: space-around;
-    margin: 5vw 2vw;
+    margin: 3vw 1vw;
     padding-bottom: 4vh;
     text-align: center;
     border: 2px solid #a1282f;
@@ -78,13 +77,14 @@ main {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin: 8% 0;
+    padding: 2% 3%;
 }
 
 .menu2 {
     display: flex;
     justify-content: center;
     text-align: center;
+    border-left: solid #E63946 2px;
 }
 
 .menuBtn {
@@ -99,7 +99,8 @@ main {
 }
 
 .menuBtn2 {
-    width: 50%;
+    width: 200px;
+    margin-bottom: 3%;
     background-color: #457B9D;
     border: 2px solid #a1282f;
     color: #f1faee;
@@ -113,16 +114,18 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 100%;
 }
 
 #agregarMascotaForm label {
-    margin-top: 1em;
+    margin-top: 3em;
+    font-weight: 900;
+    font-size: 20px;
 }
 
-#agregarMascotaForm label input{
-    width: 20em;
+#agregarMascotaForm input {
+    width: 50%;
 }
-
 /* -------------------------------------------------------------- */
 /* ----------------------------Nav------------------------------- */
 /* -------------------------------------------------------------- */
@@ -143,11 +146,11 @@ nav {
 }
 
 .logo {
-    width: 18vw;
+    width: 12vw;
     margin-left: 25%;
     padding: 0;
-    margin-top: 0;
-    margin-bottom: 0;
+    margin-top: 2%;
+    margin-bottom: 2%;
 }
 
 .linkNav {
@@ -296,11 +299,6 @@ nav {
 /* -------------------------Contacto----------------------------- */
 /* -------------------------------------------------------------- */
 
-h4 {
-    text-align: center;
-    color: #1D3557;
-}
-
 .contactoBanner {
     background: linear-gradient(180deg, rgba(69, 123, 157, 0) 0%, rgba(69, 123, 157, 0.2754) 48.44%, rgba(69, 123, 157, 0.51) 76.56%);
     border-radius: 0px 0px 40px 40px;
@@ -317,26 +315,42 @@ h4 {
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
+.contactoDiv {
+    margin-top: 5%;
+    padding-bottom: 5%;
+    background-image: url(../img/imgBG.png);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.mensajero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+h4 {
+    text-align: center;
+    color: #1D3557;
+}
+
 .contactoForm {
     margin-bottom: 10px;
     display: flex;
     flex-direction: column;
+    justify-content: center;
 }
 
 .contactoForm button{
-    margin-left: 25%;
+    margin: 5%;
 }
 
 .label2 {
-    padding: 1% 5%;
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    margin-top: 2%;
+    margin-top: 3%;
 }
 
 .inputLoco {
-    margin-right: 10px;
     right: 0;
     width: 80%;
     opacity: 0.7;
@@ -346,7 +360,6 @@ h4 {
 }
 
 .inputLoco2 {
-    margin-right: 10px;
     opacity: 0.7;
     border-radius: 15px;
     border: #1d3557 solid 1px;
@@ -355,22 +368,12 @@ h4 {
     resize: none;
 }
 
-
 #mensaje {
-    width: 88%;
+    width: 80%;
     height: 200px;
-    margin-left: 5%;
-    margin-top: 2%;
+    margin-top: 4%;
 }
 
-.contactoDiv {
-    margin-top: 5%;
-    padding-bottom: 5%;
-    background-image: url(../img/imgBG.png);
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
-}
 
 /* -------------------------------------------------------------- */
 /* --------------------------Footer------------------------------ */
