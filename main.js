@@ -7,7 +7,7 @@ window.addEventListener('DOMContentLoaded', () => {
 });
 
 const autenticar = (event) => {
-    event.preventDefault(); // Evitar el envío del formulario
+    event.preventDefault();
 
     const usuarioInput = document.getElementById('usuario');
     const passwordInput = document.getElementById('password');
@@ -176,14 +176,12 @@ const agregarMascotaFromForm = () => {
     let nuevaMascota = new Mascota(nombre, especie, edad, sexo, color, numero);
     listaAnimales.push(nuevaMascota);
 
-    // Restablecer los valores del formulario
     nombreInput.value = '';
     especieInput.value = '';
     edadInput.value = '';
     sexoInput.value = '';
     colorInput.value = '';
 
-    // Guardar en localStorage
     const listaAnimalesJSON = JSON.stringify(listaAnimales);
     localStorage.setItem('listaAnimales', listaAnimalesJSON);
 
