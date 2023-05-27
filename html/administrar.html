@@ -45,14 +45,14 @@
 
     <main>
         <div class="admin row">
-            <div class="menu col-3">
+            <div class="menu col-2">
                 <button class="menuBtn" onclick="mostrarDiv('agregarDiv')">Agregar Mascota</button>
                 <button class="menuBtn" onclick="mostrarDiv('rescatadosDiv')">Fue rescatado</button>
                 <button class="menuBtn" onclick="mostrarDiv('modificarDiv')">Modificar Mascota</button>
                 <button class="menuBtn" onclick="mostrarDiv('listaMascotasDiv')">lista de Mascotas</button>
                 <button class="menuBtn" onclick="cerrarSesion()">Salir</button>
             </div>
-            <div class="menu2 col-9">
+            <div class="menu2 col-10">
                 <div id="agregarDiv" class="agregarMascotaForm menuDiv">
                     <label>Nombre:</label>
                     <input class="form-control" type="text" id="nombreMascota" name="nombreMascota">
@@ -75,7 +75,9 @@
                 <div id="rescatadosDiv" class="menuDiv">Contenido del div de rescatados</div>
                 <div id="modificarDiv" class="menuDiv">
                     <label for="ModificaInput">Numero de Mascota a modificar</label>
-                    <input type="text" name="ModificaInput" id="ModificaInput">
+                    <input class="form-control" type="number" name="ModificaInput" id="ModificaInput">
+                    <br>
+                    <button id="modificarMascota">Buscar</button>
                 </div>
                 <div id="listaMascotasDiv" class="menuDiv"></div>
             </div>

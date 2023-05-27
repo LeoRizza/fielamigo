@@ -95,6 +95,7 @@ if (mascotas) {
 
         card.innerHTML = `
         <div class="card">
+            <h3 class="numeroID">${Mascota.numero}</h3>
             <img src="../img/pexels-dominika-roseclay-2023384.jpg" class="card-img-top" alt="${Mascota.nombre}">
             <div class="card-body">
                 <h5 class="card-title">${Mascota.nombre}</h5>
@@ -109,6 +110,103 @@ if (mascotas) {
         listaMascotasDiv.appendChild(card);
     });
 }
+
+const mostrarMascotas = () => {
+    listaMascotasDiv.innerHTML = "";
+
+    const mascotas = JSON.parse(localStorage.getItem('listaAnimales'));
+
+    if (mascotas) {
+        mascotas.forEach(Mascota => {
+            const card = document.createElement('div');
+            card.classList.add('mascotaCard');
+
+            card.innerHTML = `
+            <div class="card">
+                <h3 class="numeroID">${Mascota.numero}</h3>
+                <img src="../img/pexels-dominika-roseclay-2023384.jpg" class="card-img-top" alt="${Mascota.nombre}">
+                <div class="card-body">
+                    <h5 class="card-title">${Mascota.nombre}</h5>
+                    <p class="cardLoca">Especie: ${Mascota.especie}.</p>
+                    <p class="cardLoca">Edad: ${Mascota.edad}.</p>
+                    <p class="cardLoca">Sexo: ${Mascota.sexo}.</p>
+                    <p class="cardLoca">Descripcion: ${Mascota.color}.</p>
+                </div>
+            </div>
+        `;
+
+            listaMascotasDiv.appendChild(card);
+        });
+    }
+};
+
+const modificarMascota = () => {
+    const numeroInput = document.getElementById('ModificaInput');
+    const numero = parseInt(numeroInput.value);
+
+    let mascotaEncontrada = null;
+
+    for (let i = 0; i < listaAnimales.length; i++) {
+        if (listaAnimales[i].numero === numero) {
+            mascotaEncontrada = listaAnimales[i];
+            break;
+        }
+    }
+
+    if (mascotaEncontrada) {
+        let opcion = prompt(`Ingrese el número de la opción que desea modificar:\n 1-Nombre \n 2-Especie \n 3-Edad \n 4-Sexo \n 5-Color`);
+        switch (opcion) {
+            case '1':
+                mascotaEncontrada.nombre = prompt("Ingrese nuevo nombre:");
+                break;
+            case '2':
+                mascotaEncontrada.especie = prompt("Ingrese especie:");
+                break;
+            case '3':
+                mascotaEncontrada.edad = prompt("Ingrese edad:");
+                break;
+            case '4':
+                mascotaEncontrada.sexo = prompt("Ingrese sexo:");
+                break;
+            case '5':
+                mascotaEncontrada.color = prompt("Ingrese descripcion:");
+                break;
+            default:
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Opción inválida',
+                });
+                return;
+        }
+
+        const listaAnimalesJSON = JSON.stringify(listaAnimales);
+        localStorage.setItem('listaAnimales', listaAnimalesJSON);
+
+        mostrarMascotas();
+
+        Swal.fire({
+            icon: 'success',
+            title: 'Mascota modificada con éxito.',
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 2000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer);
+                toast.addEventListener('mouseleave', Swal.resumeTimer);
+            },
+        });
+    } else {
+        Swal.fire({
+            icon: "error",
+            title: "No se encontró ninguna Mascota con ese número.",
+        });
+    }
+};
+
+document.getElementById('modificarMascota').addEventListener('click', modificarMascota);
 
 const mascotaRescatada = () => {
     let numero = prompt("Ingrese el número de Mascota rescatada: ");
@@ -125,41 +223,6 @@ const mascotaRescatada = () => {
         alert("No se encontró ninguna Mascota con ese número.");
     }
     console.log(listaRescatados);
-};
-
-const modificarMascota = () => {
-    let numero = document.getElementById('ModificaInput')
-    let finder = false;
-    for (let i = 0; i < listaAnimales.length; i++) {
-        if (listaAnimales[i].numero == numero) {
-            let opcion = prompt(`Ingrese el número de la opción que desea modificar:\n 1-Nombre \n 2-Especie \n 3-Edad \n 4-Sexo \n 5-Color`);
-            switch (opcion) {
-                case '1':
-                    listaAnimales[i].nombre = prompt("Ingrese el nuevo nombre:");
-                    break;
-                case '2':
-                    listaAnimales[i].especie = prompt("Ingrese la nueva especie:");
-                    break;
-                case '3':
-                    listaAnimales[i].edad = prompt("Ingrese la nueva edad:");
-                    break;
-                case '4':
-                    listaAnimales[i].sexo = prompt("Ingrese el nuevo sexo:");
-                    break;
-                case '5':
-                    listaAnimales[i].color = prompt("Ingrese el nuevo color:");
-                    break;
-                default:
-                    alert("Opción inválida");
-                    break;
-            }
-            finder = true;
-            break;
-        }
-    }
-    if (!finder) {
-        alert("No se encontró ninguna Mascota con ese número.");
-    }
 };
 
 const mostrarDiv = (divId) => {
@@ -227,6 +290,8 @@ const agregarMascotaFromForm = () => {
             toast.addEventListener('mouseleave', Swal.resumeTimer);
         },
     });
+
+    mostrarMascotas();
 };
 
 
