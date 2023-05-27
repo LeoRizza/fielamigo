@@ -61,6 +61,7 @@ main {
     border: 2px solid #a1282f;
     border-radius: 15px;
     padding: 0;
+    position: relative;
 }
 
 .ingresarBtn {
@@ -77,19 +78,27 @@ main {
 .menu {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    padding: 15em 3%;
-    border-right: solid #a1282f 2px;
+    justify-content: flex-start;
+    padding: 15em 2%;
 }
 
 .menu2 {
     display: flex;
-    justify-content: center;
-    text-align: center;
+    overflow-y: scroll;
 }
 
 .menuDiv {
     display: none;
+}
+
+#modificarDiv {
+    display: flex;
+    flex-direction: column;
+}
+
+#listaMascotasDiv {
+    gap: 10px;
+    flex-wrap: wrap;
 }
 
 .menuBtn {
@@ -131,6 +140,22 @@ main {
     width: 50%;
 }
 
+.card {
+    display: flex;
+    overflow: scroll;
+    width: 10rem;
+    height: 20rem;
+}
+
+.card img {
+    height: 55%;
+}
+.cardLoca {
+    font-size: 0.8em;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+}
 /* -------------------------------------------------------------- */
 /* ----------------------------Nav------------------------------- */
 /* -------------------------------------------------------------- */

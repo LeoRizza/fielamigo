@@ -66,15 +66,18 @@
                     <label>Sexo:</label>
                     <input class="form-control" type="text" id="sexoMascota" name="sexoMascota">
 
-                    <label>Color:</label>
+                    <label>Descripcion:</label>
                     <input class="form-control" type="text" id="colorMascota" name="colorMascota">
                     <br>
 
                     <button class="menuBtn2" onclick="agregarMascotaFromForm()">Agregar</button>
                 </div>
                 <div id="rescatadosDiv" class="menuDiv">Contenido del div de rescatados</div>
-                <div id="modificarDiv" class="menuDiv">Contenido del div modificarDiv</div>
-                <div id="listaMascotaDiv" class="menuDiv">Contenido del div listaMascotaDiv</div>
+                <div id="modificarDiv" class="menuDiv">
+                    <label for="ModificaInput">Numero de Mascota a modificar</label>
+                    <input type="text" name="ModificaInput" id="ModificaInput">
+                </div>
+                <div id="listaMascotasDiv" class="menuDiv"></div>
             </div>
         </div>
     </main>

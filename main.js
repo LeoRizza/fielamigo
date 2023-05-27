@@ -85,18 +85,30 @@ let listaAnimales = [];
 
 let numeroMascota = 1;
 
-const mostrarMascotas = () => {
-    let mensaje = "\nLista de Mascotas:\n\n";
-    for (let i = 0; i < listaAnimales.length; i++) {
-        mensaje += `Nombre: ${listaAnimales[i].nombre}\n`;
-        mensaje += `Edad: ${listaAnimales[i].edad}\n`;
-        mensaje += `Especie: ${listaAnimales[i].especie}\n`;
-        mensaje += `Sexo: ${listaAnimales[i].sexo}\n`;
-        mensaje += `Color: ${listaAnimales[i].color}\n`;
-        mensaje += `Número: ${listaAnimales[i].numero}\n\n`;
-    }
-    alert(mensaje);
-};
+const listaMascotasDiv = document.getElementById('listaMascotasDiv');
+const mascotas = JSON.parse(localStorage.getItem('listaAnimales'));
+
+if (mascotas) {
+    mascotas.forEach(Mascota => {
+        const card = document.createElement('div');
+        card.classList.add('mascotaCard');
+
+        card.innerHTML = `
+        <div class="card">
+            <img src="../img/pexels-dominika-roseclay-2023384.jpg" class="card-img-top" alt="${Mascota.nombre}">
+            <div class="card-body">
+                <h5 class="card-title">${Mascota.nombre}</h5>
+                <p class="cardLoca">Especie: ${Mascota.especie}.</p>
+                <p class="cardLoca">Edad: ${Mascota.edad}.</p>
+                <p class="cardLoca">Sexo: ${Mascota.sexo}.</p>
+                <p class="cardLoca">Descripcion: ${Mascota.color}.</p>
+            </div>
+        </div>
+    `;
+
+        listaMascotasDiv.appendChild(card);
+    });
+}
 
 const mascotaRescatada = () => {
     let numero = prompt("Ingrese el número de Mascota rescatada: ");
@@ -116,7 +128,7 @@ const mascotaRescatada = () => {
 };
 
 const modificarMascota = () => {
-    let numero = prompt("Ingrese el número de Mascota a modificar:");
+    let numero = document.getElementById('ModificaInput')
     let finder = false;
     for (let i = 0; i < listaAnimales.length; i++) {
         if (listaAnimales[i].numero == numero) {
