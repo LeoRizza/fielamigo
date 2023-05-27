@@ -141,7 +141,7 @@ const mostrarMascotas = () => {
 };
 
 const modificarMascota = () => {
-    const numeroInput = document.getElementById('ModificaInput');
+    const numeroInput = document.getElementById("ModificaInput");
     const numero = parseInt(numeroInput.value);
 
     let mascotaEncontrada = null;
@@ -154,49 +154,124 @@ const modificarMascota = () => {
     }
 
     if (mascotaEncontrada) {
-        let opcion = prompt(`Ingrese el número de la opción que desea modificar:\n 1-Nombre \n 2-Especie \n 3-Edad \n 4-Sexo \n 5-Color`);
-        switch (opcion) {
-            case '1':
-                mascotaEncontrada.nombre = prompt("Ingrese nuevo nombre:");
-                break;
-            case '2':
-                mascotaEncontrada.especie = prompt("Ingrese especie:");
-                break;
-            case '3':
-                mascotaEncontrada.edad = prompt("Ingrese edad:");
-                break;
-            case '4':
-                mascotaEncontrada.sexo = prompt("Ingrese sexo:");
-                break;
-            case '5':
-                mascotaEncontrada.color = prompt("Ingrese descripcion:");
-                break;
-            default:
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Oops...',
-                    text: 'Opción inválida',
-                });
-                return;
-        }
-
-        const listaAnimalesJSON = JSON.stringify(listaAnimales);
-        localStorage.setItem('listaAnimales', listaAnimalesJSON);
-
-        mostrarMascotas();
+        const inputsContainer = document.createElement("div");
 
         Swal.fire({
-            icon: 'success',
-            title: 'Mascota modificada con éxito.',
-            toast: true,
-            position: 'top-end',
-            showConfirmButton: false,
-            timer: 2000,
-            timerProgressBar: true,
-            didOpen: (toast) => {
-                toast.addEventListener('mouseenter', Swal.stopTimer);
-                toast.addEventListener('mouseleave', Swal.resumeTimer);
+            title: "Ingrese el número de la opción que desea modificar:",
+            input: "select",
+            inputOptions: {
+                "1": "Nombre",
+                "2": "Especie",
+                "3": "Edad",
+                "4": "Sexo",
+                "5": "Descripcion"
             },
+            showCancelButton: true,
+            cancelButtonText: "Cancelar",
+            confirmButtonText: "Modificar",
+            showLoaderOnConfirm: true,
+            preConfirm: (opcion) => {
+                if (!opcion) {
+                    Swal.showValidationMessage("Debe seleccionar una opción");
+                }
+                return opcion;
+            }
+        }).then((result) => {
+            if (result.isConfirmed) {
+                const opcionSeleccionada = result.value;
+                switch (opcionSeleccionada) {
+                    case "1":
+                        const nombreInput = document.createElement("input");
+                        nombreInput.type = "text";
+                        nombreInput.value = mascotaEncontrada.nombre;
+                        inputsContainer.appendChild(nombreInput);
+                        break;
+
+                    case "2":
+                        const especieInput = document.createElement("input");
+                        especieInput.type = "text";
+                        especieInput.value = mascotaEncontrada.especie;
+                        inputsContainer.appendChild(especieInput);
+                        break;
+
+                    case "3":
+                        const edadInput = document.createElement("input");
+                        edadInput.type = "number";
+                        edadInput.value = mascotaEncontrada.edad;
+                        inputsContainer.appendChild(edadInput);
+                        break;
+
+                    case "4":
+                        const sexoSelect = document.createElement("select");
+                        sexoSelect.innerHTML = `
+                        <option value="Macho" ${mascotaEncontrada.sexo === "Macho" ? "selected" : ""}>Macho</option>
+                        <option value="Hembra" ${mascotaEncontrada.sexo === "Hembra" ? "selected" : ""}>Hembra</option>
+                        <option value="Otro" ${mascotaEncontrada.sexo === "Otro" ? "selected" : ""}>Otro</option>
+                        `;
+                        inputsContainer.appendChild(sexoSelect);
+                        break;
+
+                    case "5":
+                        const colorInput = document.createElement("input");
+                        colorInput.type = "text";
+                        colorInput.value = mascotaEncontrada.color;
+                        inputsContainer.appendChild(colorInput);
+                        break;
+
+                    default:
+                        Swal.fire("Oops...", "Opción inválida", "error");
+                        break;
+                }
+
+                Swal.fire({
+                    title: "Ingrese los nuevos valores:",
+                    html: inputsContainer,
+                    showCancelButton: true,
+                    cancelButtonText: "Cancelar",
+                    confirmButtonText: "Modificar",
+                    preConfirm: () => {
+                        const nombre = opcionSeleccionada === "1" ? inputsContainer.querySelector('input[type="text"]').value : mascotaEncontrada.nombre;
+                        const especie = opcionSeleccionada === "2" ? inputsContainer.querySelector('input[type="text"]').value : mascotaEncontrada.especie;
+                        const edad = opcionSeleccionada === "3" ? inputsContainer.querySelector('input[type="number"]').value : mascotaEncontrada.edad;
+                        const sexo = opcionSeleccionada === "4" ? inputsContainer.querySelector("select").value : mascotaEncontrada.sexo;
+                        const color = opcionSeleccionada === "5" ? inputsContainer.querySelector('input[type="text"]').value : mascotaEncontrada.color;
+                        if (nombre) {
+                            mascotaEncontrada.nombre = nombre;
+                        }
+                        if (especie) {
+                            mascotaEncontrada.especie = especie;
+                        }
+                        if (edad) {
+                            mascotaEncontrada.edad = edad;
+                        }
+                        if (sexo) {
+                            mascotaEncontrada.sexo = sexo;
+                        }
+                        if (color) {
+                            mascotaEncontrada.color = color;
+                        }
+
+                        const listaAnimalesJSON = JSON.stringify(listaAnimales);
+                        localStorage.setItem("listaAnimales", listaAnimalesJSON);
+
+                        mostrarMascotas();
+
+                        Swal.fire({
+                            icon: "success",
+                            title: "Mascota modificada con éxito.",
+                            toast: true,
+                            position: "top-end",
+                            showConfirmButton: false,
+                            timer: 2000,
+                            timerProgressBar: true,
+                            didOpen: (toast) => {
+                                toast.addEventListener("mouseenter", Swal.stopTimer);
+                                toast.addEventListener("mouseleave", Swal.resumeTimer);
+                            },
+                        });
+                    },
+                });
+            }
         });
     } else {
         Swal.fire({
