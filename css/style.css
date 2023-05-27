@@ -12,28 +12,29 @@ body {
 main {
     padding: 0 15%;
     position: relative;
+    margin-top: 10vh;
 }
 
 #formularioIngreso {
     position: absolute;
     bottom: 0;
     right: 0;
-    top: 0;
+    top: 10vh;
     padding: 2rem 2rem;
     background-color: #457B9D;
     color: #f1faee;
     font-weight: 800;
     opacity: 0.7;
     z-index: 3;
+    position: fixed;
 }
 
 #formularioIngreso form {
     display: flex;
     flex-direction: column;
-    position: sticky;
 }
 
-#formularioIngreso form label{
+#formularioIngreso form label {
     padding-top: 2rem;
     text-align: center;
 }
@@ -54,7 +55,7 @@ main {
     display: flex;
     align-items: center;
     justify-content: space-around;
-    margin: 3vw 1vw;
+    margin: 8vw 1vw;
     padding-bottom: 4vh;
     text-align: center;
     border: 2px solid #a1282f;
@@ -77,14 +78,18 @@ main {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 2% 3%;
+    padding: 15em 3%;
+    border-right: solid #a1282f 2px;
 }
 
 .menu2 {
     display: flex;
     justify-content: center;
     text-align: center;
-    border-left: solid #E63946 2px;
+}
+
+.menuDiv {
+    display: none;
 }
 
 .menuBtn {
@@ -109,31 +114,32 @@ main {
     padding: 2%;
 }
 
-#agregarMascotaForm {
-    display: flex;
+.agregarMascotaForm {
     flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 100%;
 }
 
-#agregarMascotaForm label {
+.agregarMascotaForm label {
     margin-top: 3em;
     font-weight: 900;
     font-size: 20px;
 }
 
-#agregarMascotaForm input {
+.agregarMascotaForm input {
     width: 50%;
 }
+
 /* -------------------------------------------------------------- */
 /* ----------------------------Nav------------------------------- */
 /* -------------------------------------------------------------- */
 
 nav {
     background: linear-gradient(180deg, #457b9d 26.04%, #1d3557 91.15%);
-    border-bottom: 4px solid #a1282f;
+    border-bottom: 4px solid #f1faee;
     padding: 1em;
+    height: 10vh;
 }
 
 .navbar {
@@ -143,6 +149,10 @@ nav {
 .navbar2 {
     padding-bottom: 0;
     padding-top: 0;
+    position: fixed;
+    z-index: 5;
+    top: 0px;
+
 }
 
 .logo {
@@ -342,7 +352,7 @@ h4 {
     justify-content: center;
 }
 
-.contactoForm button{
+.contactoForm button {
     margin: 5%;
 }
 
@@ -384,7 +394,9 @@ footer {
     border-top: 4px solid #a1282f;
     padding: 1em;
     display: flex;
+    height: 16vh;
     justify-content: space-around;
+
 }
 
 .terminos {

@@ -150,6 +150,24 @@ const modificarMascota = () => {
     }
 };
 
+const mostrarDiv = (divId) => {
+    const divs = document.getElementsByClassName("menuDiv");
+    const divSeleccionado = document.getElementById(divId);
+
+    if (divSeleccionado.style.display === "flex") {
+        divSeleccionado.style.display = "none";
+    } else {
+        for (let i = 0; i < divs.length; i++) {
+            const div = divs[i];
+            if (div.id === divId) {
+                div.style.display = "flex";
+            } else {
+                div.style.display = "none";
+            }
+        }
+    }
+};
+
 const agregarMascotaFromForm = () => {
     const nombreInput = document.getElementById('nombreMascota');
     const especieInput = document.getElementById('especieMascota');
@@ -163,7 +181,6 @@ const agregarMascotaFromForm = () => {
     const sexo = sexoInput.value.trim();
     const color = colorInput.value.trim();
 
-    // Valida que todos los campos estén completos
     if (!nombre || !especie || !edad || !sexo || !color) {
         alert('Por favor, complete todos los campos del formulario.');
         return;
