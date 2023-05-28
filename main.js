@@ -86,30 +86,6 @@ let listaAnimales = [];
 let numeroMascota = 1;
 
 const listaMascotasDiv = document.getElementById('listaMascotasDiv');
-const mascotas = JSON.parse(localStorage.getItem('listaAnimales'));
-
-if (mascotas) {
-    mascotas.forEach(Mascota => {
-        const card = document.createElement('div');
-        card.classList.add('mascotaCard');
-
-        card.innerHTML = `
-        <div class="card">
-            <h3 class="numeroID">${Mascota.numero}</h3>
-            <img src="../img/pexels-dominika-roseclay-2023384.jpg" class="card-img-top" alt="${Mascota.nombre}">
-            <div class="card-body">
-                <h5 class="card-title">${Mascota.nombre}</h5>
-                <p class="cardLoca">Especie: ${Mascota.especie}.</p>
-                <p class="cardLoca">Edad: ${Mascota.edad}.</p>
-                <p class="cardLoca">Sexo: ${Mascota.sexo}.</p>
-                <p class="cardLoca">Descripcion: ${Mascota.color}.</p>
-            </div>
-        </div>
-    `;
-
-        listaMascotasDiv.appendChild(card);
-    });
-}
 
 const mostrarMascotas = () => {
     listaMascotasDiv.innerHTML = "";
@@ -139,6 +115,9 @@ const mostrarMascotas = () => {
         });
     }
 };
+
+mostrarMascotas();
+
 
 const modificarMascota = () => {
     const numeroInput = document.getElementById("ModificaInput");
@@ -432,7 +411,7 @@ const enviarConsulta = (event) => {
     });
 };
 
-
 if (formularioContacta) {
     formularioContacta.addEventListener('submit', enviarConsulta);
 }
+

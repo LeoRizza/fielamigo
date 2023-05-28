@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap");
 
 body {
-    background: #f1faee;
+    background-color: whitesmoke;
     font-family: "Roboto", sans-serif;
 }
 
@@ -10,9 +10,14 @@ body {
 /* -------------------------------------------------------------- */
 
 main {
-    padding: 0 13%;
+    padding: 0 20%;
     position: relative;
     margin-top: 10vh;
+    background-color: #F1FAEE;
+}
+
+.portadaDiv {
+    height: 90vh;
 }
 
 #formularioIngreso {
@@ -272,35 +277,35 @@ nav {
 
 .portada img {
     width: 100%;
+    max-height: 50%;
 }
 
 .entrada {
     display: flex;
     flex-direction: column;
-    margin-top: -8%;
-    margin-left: 15%;
-    margin-right: 15%;
-    margin-bottom: 5%;
+    margin-top: -11%;
+    padding-left: 15%;
+    padding-right: 15%;
+    text-align: justify;
 }
 
 .entrada img {
-    padding-left: 2vw;
-    width: 20vw;
+    width: 20rem;
 }
 
 .entrada p {
-    font-size: 1vw;
+    font-size: 1rem;
     font-weight: 800;
     color: #1d3557;
     letter-spacing: 2.33679px;
     line-height: 290%;
-    padding-bottom: 2vh;
     padding-top: 2vh;
+    margin-bottom: 0;
 }
 
 .strongito {
     font-weight: bolder;
-    font-size: 1.5vw;
+    font-size: 1vw;
 }
 
 .navbar-toggler-icon {
@@ -313,6 +318,11 @@ nav {
 
 .imges img {
     width: 100%;
+    max-height: 45vh;
+}
+
+#rescata {
+    padding-top: 7.4%;
 }
 
 .botonAdopta {
@@ -386,7 +396,7 @@ nav {
     line-height: 120%;
     text-align: center;
     letter-spacing: 0.1em;
-    color: #E63946;
+    color: #1D3557;
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
@@ -415,6 +425,7 @@ h4 {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
 }
 
 .contactoForm button {
@@ -544,7 +555,6 @@ footer {
     .navegador {
         display: flex;
         justify-content: center;
-        border-top: solid 0.1em #a1282f;
         margin: 0;
     }
 
@@ -571,9 +581,11 @@ footer {
     .navegador {
         display: flex;
         justify-content: center;
-        border-top: solid 0.2em #a1282f;
         margin: 0;
+        border-top: solid 0.1em #f1faee;
+        padding-top: 0%;
         padding-bottom: 0.5em;
+        background: linear-gradient(180deg, #457b9d 26.04%, #1d3557 91.15%);
     }
 
     .navbar2 {
@@ -581,7 +593,7 @@ footer {
     }
 
     .logo {
-        width: 25vw;
+        width: 20vw;
     }
 
     .entrada img {
