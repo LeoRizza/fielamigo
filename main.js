@@ -6,68 +6,6 @@ window.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-const autenticar = (event) => {
-    event.preventDefault();
-
-    const usuarioInput = document.getElementById('usuario');
-    const passwordInput = document.getElementById('password');
-    const nombreUsuario = usuarioInput.value;
-    const contrasena = passwordInput.value;
-
-    if (nombreUsuario === "Admin89" && contrasena === "pass999") {
-        Swal.fire({
-            icon: 'success',
-            title: '¡Ingreso exitoso!',
-            toast: true,
-            position: 'top-end',
-            showConfirmButton: false,
-            timer: 1000,
-            timerProgressBar: true,
-            didOpen: (toast) => {
-                toast.addEventListener('mouseenter', Swal.stopTimer);
-                toast.addEventListener('mouseleave', Swal.resumeTimer);
-            }
-        });
-        setTimeout(() => {
-            window.location.href = "./html/administrar.html";
-        }, 1000);
-    } else {
-        if (nombreUsuario !== "Admin89") {
-            Swal.fire({
-                icon: "error",
-                title: "Usuario inexistente.",
-            });
-        } else {
-            Swal.fire({
-                icon: "error",
-                title: "Contraseña incorrecta.",
-            });
-        }
-    }
-};
-
-const ingresoForm = document.getElementById('ingreso');
-if (ingresoForm) {
-    ingresoForm.addEventListener('submit', autenticar);
-}
-
-const autenticarBtn = document.getElementById('autenticarBtn');
-const formularioIngreso = document.getElementById('formularioIngreso');
-
-if (autenticarBtn && formularioIngreso) {
-    autenticarBtn.addEventListener('click', (event) => {
-        event.preventDefault();
-        formularioIngreso.style.display = 'block';
-    });
-}
-
-const cerrarBtn = document.getElementById('cerrarBtn');
-if (cerrarBtn && formularioIngreso) {
-    cerrarBtn.addEventListener('click', () => {
-        formularioIngreso.style.display = 'none';
-    });
-}
-
 let listaRescatados = [];
 
 class Mascota {
@@ -84,40 +22,6 @@ class Mascota {
 let listaAnimales = [];
 
 let numeroMascota = 1;
-
-const listaMascotasDiv = document.getElementById('listaMascotasDiv');
-
-const mostrarMascotas = () => {
-    listaMascotasDiv.innerHTML = "";
-
-    const mascotas = JSON.parse(localStorage.getItem('listaAnimales'));
-
-    if (mascotas) {
-        mascotas.forEach(Mascota => {
-            const card = document.createElement('div');
-            card.classList.add('mascotaCard');
-
-            card.innerHTML = `
-            <div class="card">
-                <h3 class="numeroID">${Mascota.numero}</h3>
-                <img src="../img/pexels-dominika-roseclay-2023384.jpg" class="card-img-top" alt="${Mascota.nombre}">
-                <div class="card-body">
-                    <h5 class="card-title">${Mascota.nombre}</h5>
-                    <p class="cardLoca">Especie: ${Mascota.especie}.</p>
-                    <p class="cardLoca">Edad: ${Mascota.edad}.</p>
-                    <p class="cardLoca">Sexo: ${Mascota.sexo}.</p>
-                    <p class="cardLoca">Descripcion: ${Mascota.color}.</p>
-                </div>
-            </div>
-        `;
-
-            listaMascotasDiv.appendChild(card);
-        });
-    }
-};
-
-mostrarMascotas();
-
 
 const modificarMascota = () => {
     const numeroInput = document.getElementById("ModificaInput");
@@ -211,56 +115,27 @@ const modificarMascota = () => {
                     preConfirm: () => {
                         const nombre = opcionSeleccionada === "1" ? inputsContainer.querySelector('input[type="text"]').value : mascotaEncontrada.nombre;
                         const especie = opcionSeleccionada === "2" ? inputsContainer.querySelector('input[type="text"]').value : mascotaEncontrada.especie;
-                        const edad = opcionSeleccionada === "3" ? inputsContainer.querySelector('input[type="number"]').value : mascotaEncontrada.edad;
-                        const sexo = opcionSeleccionada === "4" ? inputsContainer.querySelector("select").value : mascotaEncontrada.sexo;
-                        const color = opcionSeleccionada === "5" ? inputsContainer.querySelector('input[type="text"]').value : mascotaEncontrada.color;
-                        if (nombre) {
-                            mascotaEncontrada.nombre = nombre;
-                        }
-                        if (especie) {
-                            mascotaEncontrada.especie = especie;
-                        }
-                        if (edad) {
-                            mascotaEncontrada.edad = edad;
-                        }
-                        if (sexo) {
-                            mascotaEncontrada.sexo = sexo;
-                        }
-                        if (color) {
-                            mascotaEncontrada.color = color;
-                        }
+                        const edad = opcionSeleccionada === "3" ? parseInt(inputsContainer.querySelector('input[type="number"]').value) : mascotaEncontrada.edad;
+                        const sexo = opcionSeleccionada === "4" ? inputsContainer.querySelector('select').value : mascotaEncontrada.sexo;
+                        const descripcion = opcionSeleccionada === "5" ? inputsContainer.querySelector('input[type="text"]').value : mascotaEncontrada.descripcion;
 
-                        const listaAnimalesJSON = JSON.stringify(listaAnimales);
-                        localStorage.setItem("listaAnimales", listaAnimalesJSON);
+                        mascotaEncontrada.nombre = nombre;
+                        mascotaEncontrada.especie = especie;
+                        mascotaEncontrada.edad = edad;
+                        mascotaEncontrada.sexo = sexo;
+                        mascotaEncontrada.descripcion = descripcion;
 
-                        mostrarMascotas();
-
-                        Swal.fire({
-                            icon: "success",
-                            title: "Mascota modificada con éxito.",
-                            toast: true,
-                            position: "top-end",
-                            showConfirmButton: false,
-                            timer: 2000,
-                            timerProgressBar: true,
-                            didOpen: (toast) => {
-                                toast.addEventListener("mouseenter", Swal.stopTimer);
-                                toast.addEventListener("mouseleave", Swal.resumeTimer);
-                            },
-                        });
-                    },
+                        Swal.fire("¡Éxito!", "La mascota se ha modificado correctamente", "success");
+                    }
                 });
             }
         });
     } else {
-        Swal.fire({
-            icon: "error",
-            title: "No se encontró ninguna Mascota con ese número.",
-        });
+        Swal.fire("Oops...", "No se encontró ninguna mascota con ese número", "error");
     }
 };
 
-document.getElementById('modificarMascota').addEventListener('click', modificarMascota);
+document.getElementById("modificarMascota").addEventListener("click", modificarMascota);
 
 const mascotaRescatada = () => {
     let numero = prompt("Ingrese el número de Mascota rescatada: ");
@@ -348,7 +223,38 @@ const agregarMascotaFromForm = () => {
     mostrarMascotas();
 };
 
+const listaMascotasDiv = document.getElementById('listaMascotasDiv');
 
+const mostrarMascotas = () => {
+    listaMascotasDiv.innerHTML = "";
+
+    const mascotas = listaAnimales;
+
+    if (mascotas) {
+        mascotas.forEach(mascota => {
+            const card = document.createElement('div');
+            card.classList.add('mascotaCard');
+
+            card.innerHTML = `
+            <div class="card">
+                <h3 class="numeroID">${mascota.numero}</h3>
+                <img src="../img/pexels-dominika-roseclay-2023384.jpg" class="card-img-top" alt="${mascota.nombre}">
+                <div class="card-body">
+                    <h5 class="card-title">${mascota.nombre}</h5>
+                    <p class="cardLoca">Especie: ${mascota.especie}.</p>
+                    <p class="cardLoca">Edad: ${mascota.edad}.</p>
+                    <p class="cardLoca">Sexo: ${mascota.sexo}.</p>
+                    <p class="cardLoca">Descripcion: ${mascota.color}.</p>
+                </div>
+            </div>
+        `;
+
+            listaMascotasDiv.appendChild(card);
+        });
+    }
+};
+
+mostrarMascotas();
 
 const cerrarSesion = () => {
     Swal.fire({
@@ -360,58 +266,3 @@ const cerrarSesion = () => {
         window.location.href = "../index.html";
     }, 1000);
 };
-
-const formularioContacta = document.getElementById('contacta');
-const nombreInput = document.getElementById('nombre');
-const emailInput = document.getElementById('email');
-const celularInput = document.getElementById('celular');
-const mensajeInput = document.getElementById('mensaje');
-const enviarBtn = document.getElementById('consulta');
-
-const obtenerConsultasLocalStorage = () => {
-    const consultasJSON = localStorage.getItem('consultas');
-
-    if (consultasJSON) {
-        return JSON.parse(consultasJSON);
-    } else {
-        return [];
-    }
-};
-
-const guardarConsultasLocalStorage = (consultas) => {
-    const consultasJSON = JSON.stringify(consultas);
-
-    localStorage.setItem('consultas', consultasJSON);
-};
-
-const enviarConsulta = (event) => {
-    event.preventDefault();
-
-    const consultas = obtenerConsultasLocalStorage();
-
-    const nuevoConsulta = {
-        nombre: nombreInput.value,
-        email: emailInput.value,
-        celular: celularInput.value,
-        mensaje: mensajeInput.value,
-    };
-
-    consultas.push(nuevoConsulta);
-
-    guardarConsultasLocalStorage(consultas);
-
-    nombreInput.value = '';
-    emailInput.value = '';
-    celularInput.value = '';
-    mensajeInput.value = '';
-
-    Swal.fire({
-        icon: "success",
-        title: "Consulta recibida.",
-    });
-};
-
-if (formularioContacta) {
-    formularioContacta.addEventListener('submit', enviarConsulta);
-}
-

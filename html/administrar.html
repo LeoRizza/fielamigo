@@ -49,24 +49,24 @@
                 <button class="menuBtn" onclick="mostrarDiv('agregarDiv')">Agregar Mascota</button>
                 <button class="menuBtn" onclick="mostrarDiv('rescatadosDiv')">Fue rescatado</button>
                 <button class="menuBtn" onclick="mostrarDiv('modificarDiv')">Modificar Mascota</button>
-                <button class="menuBtn" onclick="mostrarDiv('listaMascotasDiv')">lista de Mascotas</button>
+                <button class="menuBtn" onclick="mostrarDiv('listaMascotasDiv'); mostrarMascotas()">lista de Mascotas</button>
                 <button class="menuBtn" onclick="cerrarSesion()">Salir</button>
             </div>
             <div class="menu2 col-10">
                 <div id="agregarDiv" class="agregarMascotaForm menuDiv">
-                    <label>Nombre:</label>
+                    <label for="nombreMascota">Nombre:</label>
                     <input class="form-control" type="text" id="nombreMascota" name="nombreMascota">
 
-                    <label>Especie:</label>
+                    <label for="especieMascota">Especie:</label>
                     <input class="form-control" type="text" id="especieMascota" name="especieMascota">
 
-                    <label>Edad:</label>
+                    <label for="edadMascota">Edad:</label>
                     <input class="form-control" type="number" id="edadMascota" name="edadMascota">
 
-                    <label>Sexo:</label>
+                    <label for="sexoMascota">Sexo:</label>
                     <input class="form-control" type="text" id="sexoMascota" name="sexoMascota">
 
-                    <label>Descripcion:</label>
+                    <label for="colorMascota">Descripcion:</label>
                     <input class="form-control" type="text" id="colorMascota" name="colorMascota">
                     <br>
 
