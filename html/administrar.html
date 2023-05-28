@@ -47,32 +47,40 @@
         <div class="admin row">
             <div class="menu col-2">
                 <button class="menuBtn" onclick="mostrarDiv('agregarDiv')">Agregar Mascota</button>
-                <button class="menuBtn" onclick="mostrarDiv('rescatadosDiv')">Fue rescatado</button>
+                <button class="menuBtn" onclick="mostrarDiv('rescatadosDiv'); mascotaRescatada()">Fue rescatado</button>
                 <button class="menuBtn" onclick="mostrarDiv('modificarDiv')">Modificar Mascota</button>
-                <button class="menuBtn" onclick="mostrarDiv('listaMascotasDiv'); mostrarMascotas()">lista de Mascotas</button>
+                <button class="menuBtn" onclick="mostrarDiv('listaMascotasDiv'); mostrarMascotas()">lista de
+                    Mascotas</button>
                 <button class="menuBtn" onclick="cerrarSesion()">Salir</button>
             </div>
             <div class="menu2 col-10">
                 <div id="agregarDiv" class="agregarMascotaForm menuDiv">
-                    <label for="nombreMascota">Nombre:</label>
-                    <input class="form-control" type="text" id="nombreMascota" name="nombreMascota">
+                    <form>
+                        <label for="nombreMascota">Nombre:</label>
+                        <input class="form-control" type="text" id="nombreMascota" name="nombreMascota">
 
-                    <label for="especieMascota">Especie:</label>
-                    <input class="form-control" type="text" id="especieMascota" name="especieMascota">
+                        <label for="especieMascota">Especie:</label>
+                        <input class="form-control" type="text" id="especieMascota" name="especieMascota">
 
-                    <label for="edadMascota">Edad:</label>
-                    <input class="form-control" type="number" id="edadMascota" name="edadMascota">
+                        <label for="edadMascota">Edad:</label>
+                        <input class="form-control" type="number" id="edadMascota" name="edadMascota">
 
-                    <label for="sexoMascota">Sexo:</label>
-                    <input class="form-control" type="text" id="sexoMascota" name="sexoMascota">
+                        <label for="sexoMascota">Sexo:</label>
+                        <input class="form-control" type="text" id="sexoMascota" name="sexoMascota">
 
-                    <label for="colorMascota">Descripcion:</label>
-                    <input class="form-control" type="text" id="colorMascota" name="colorMascota">
-                    <br>
+                        <label for="colorMascota">Descripcion:</label>
+                        <input class="form-control" type="text" id="colorMascota" name="colorMascota">
+                        <br>
 
-                    <button class="menuBtn2" onclick="agregarMascotaFromForm()">Agregar</button>
+                        <button class="menuBtn2" onclick="agregarMascotaFromForm()">Agregar</button>
+                    </form>
                 </div>
-                <div id="rescatadosDiv" class="menuDiv">Contenido del div de rescatados</div>
+                <div id="rescatadosDiv" class="menuDiv">
+                    <label for="rescatadoInput">Numero de mascota que encontro Hogar</label>
+                    <input class="form-control" type="number" name="rescatadoInput" id="rescatadoInput">
+                    <br>
+                    <button id="rescatadoBtn">Aceptar</button>
+                </div>
                 <div id="modificarDiv" class="menuDiv">
                     <label for="ModificaInput">Numero de Mascota a modificar</label>
                     <input class="form-control" type="number" name="ModificaInput" id="ModificaInput">

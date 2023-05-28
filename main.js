@@ -6,8 +6,6 @@ window.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-let listaRescatados = [];
-
 class Mascota {
     constructor(nombre, especie, edad, sexo, color, numero) {
         this.nombre = nombre;
@@ -19,11 +17,14 @@ class Mascota {
     }
 }
 
+let listaRescatados = [];
+
 let listaAnimales = [];
 
 let numeroMascota = 1;
 
 const modificarMascota = () => {
+
     const numeroInput = document.getElementById("ModificaInput");
     const numero = parseInt(numeroInput.value);
 
@@ -144,14 +145,18 @@ const mascotaRescatada = () => {
         if (listaAnimales[i].numero == numero) {
             const mascotaRescatada = listaAnimales.splice(i, 1)[0];
             listaRescatados.push(mascotaRescatada);
+            const listaRescatadosJSON = JSON.stringify(listaRescatados);
+            localStorage.setItem('listaRescatados', listaRescatadosJSON);
+            localStorage.removeItem('listaAnimales');
             finder = true;
             break;
         }
     }
     if (!finder) {
-        alert("No se encontró ninguna Mascota con ese número.");
+        Swal.fire("Oops...", "No se encontro esa mascota", "error");
     }
-    console.log(listaRescatados);
+    const listaAnimalesJSON = JSON.stringify(listaAnimales);
+    localStorage.setItem('listaAnimales', listaAnimalesJSON);
 };
 
 const mostrarDiv = (divId) => {
@@ -264,5 +269,5 @@ const cerrarSesion = () => {
 
     setTimeout(() => {
         window.location.href = "../index.html";
-    }, 1000);
+    }, 600);
 };

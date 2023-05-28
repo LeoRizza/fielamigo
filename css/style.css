@@ -65,7 +65,6 @@ body {
 
 .admin {
     display: flex;
-    align-items: center;
     justify-content: space-around;
     text-align: center;
     border: 2px solid #a1282f;
@@ -90,7 +89,9 @@ body {
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    min-height: 50vh;
+    min-height: 70vh;
+    padding-top: 1vh;
+    border-right: 2px solid #a1282f;
 }
 
 .menu2 {
@@ -104,32 +105,34 @@ body {
     display: none;
 }
 
-#modificarDiv {
-    display: flex;
-    flex-direction: column;
-}
-
 #listaMascotasDiv {
     gap: 15px;
     flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     max-height: 80vh;
     margin: 2vh 0;
-    border-left: 2px solid #a1282f;
+    padding-left: 1vh;
 }
 
 #modificarDiv {
     display: flex;
-    align-items: center;
+    flex-direction: column;
     justify-content: flex-start;
+    align-items: center;
     padding-left: 10%;
+    padding-top: 5%;
+    width: 90%;
 }
 
 #modificarDiv label {
     font-size: 1.5em;
+    font-weight: 800;
+    padding: 2%;
 }
-
+#modificarDiv input {
+    width: 30%;
+}
 .menuBtn {
     background-color: #457B9D;
     border: 2px solid #a1282f;
@@ -142,14 +145,14 @@ body {
 }
 
 .menuBtn2 {
-    width: 200px;
+    width: 100px;
     margin-bottom: 3%;
     background-color: #457B9D;
     border: 2px solid #a1282f;
     color: #f1faee;
     font-weight: 900;
     border-radius: 10px;
-    padding: 2%;
+    padding: 5%;
 }
 
 .agregarMascotaForm {
@@ -160,13 +163,13 @@ body {
 }
 
 .agregarMascotaForm label {
-    margin-top: 3em;
+    margin-top: 1em;
     font-weight: 900;
     font-size: 20px;
 }
 
 .agregarMascotaForm input {
-    width: 50%;
+    width: 100%;
 }
 
 .card {
