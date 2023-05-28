@@ -139,25 +139,37 @@ const modificarMascota = () => {
 document.getElementById("modificarMascota").addEventListener("click", modificarMascota);
 
 const mascotaRescatada = () => {
-    let numero = prompt("Ingrese el número de Mascota rescatada: ");
+    const rescatadoInput = document.getElementById("rescatadoInput");
+    const numero = parseInt(rescatadoInput.value);
     let finder = false;
     for (let i = 0; i < listaAnimales.length; i++) {
-        if (listaAnimales[i].numero == numero) {
+        if (listaAnimales[i].numero === numero) {
             const mascotaRescatada = listaAnimales.splice(i, 1)[0];
             listaRescatados.push(mascotaRescatada);
-            const listaRescatadosJSON = JSON.stringify(listaRescatados);
-            localStorage.setItem('listaRescatados', listaRescatadosJSON);
-            localStorage.removeItem('listaAnimales');
+
+            const listaRescatadosJSON = localStorage.getItem('listaRescatados');
+            let listaRescatadosExisting = [];
+            if (listaRescatadosJSON) {
+                listaRescatadosExisting = JSON.parse(listaRescatadosJSON);
+            }
+
+            listaRescatadosExisting.push(mascotaRescatada);
+
+            const listaRescatadosUpdatedJSON = JSON.stringify(listaRescatadosExisting);
+            localStorage.setItem('listaRescatados', listaRescatadosUpdatedJSON);
+
+            Swal.fire("Registro actualizado", "Mascota con Hogar!", "success");
             finder = true;
             break;
         }
     }
     if (!finder) {
-        Swal.fire("Oops...", "No se encontro esa mascota", "error");
+        Swal.fire("Oops...", "No se encontró esa mascota", "error");
     }
     const listaAnimalesJSON = JSON.stringify(listaAnimales);
     localStorage.setItem('listaAnimales', listaAnimalesJSON);
 };
+
 
 const mostrarDiv = (divId) => {
     const divs = document.getElementsByClassName("menuDiv");

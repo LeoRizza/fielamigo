@@ -47,7 +47,7 @@
         <div class="admin row">
             <div class="menu col-2">
                 <button class="menuBtn" onclick="mostrarDiv('agregarDiv')">Agregar Mascota</button>
-                <button class="menuBtn" onclick="mostrarDiv('rescatadosDiv'); mascotaRescatada()">Fue rescatado</button>
+                <button class="menuBtn" onclick="mostrarDiv('rescatadosDiv')">Fue rescatado</button>
                 <button class="menuBtn" onclick="mostrarDiv('modificarDiv')">Modificar Mascota</button>
                 <button class="menuBtn" onclick="mostrarDiv('listaMascotasDiv'); mostrarMascotas()">lista de
                     Mascotas</button>
@@ -76,16 +76,20 @@
                     </form>
                 </div>
                 <div id="rescatadosDiv" class="menuDiv">
-                    <label for="rescatadoInput">Numero de mascota que encontro Hogar</label>
-                    <input class="form-control" type="number" name="rescatadoInput" id="rescatadoInput">
-                    <br>
-                    <button id="rescatadoBtn">Aceptar</button>
+                    <form>
+                        <label for="rescatadoInput">Numero de mascota que encontro Hogar</label>
+                        <input class="form-control" type="number" name="rescatadoInput" id="rescatadoInput">
+                        <br>
+                        <button id="rescatadoBtn" onclick="mascotaRescatada()">Aceptar</button>
+                    </form>
                 </div>
                 <div id="modificarDiv" class="menuDiv">
-                    <label for="ModificaInput">Numero de Mascota a modificar</label>
-                    <input class="form-control" type="number" name="ModificaInput" id="ModificaInput">
-                    <br>
-                    <button id="modificarMascota">Buscar</button>
+                    <form>
+                        <label for="ModificaInput">Numero de Mascota a modificar</label>
+                        <input class="form-control" type="number" name="ModificaInput" id="ModificaInput">
+                        <br>
+                        <button id="modificarMascota">Buscar</button>
+                    </form>
                 </div>
                 <div id="listaMascotasDiv" class="menuDiv"></div>
             </div>

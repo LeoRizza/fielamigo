@@ -21,6 +21,7 @@ body {
     padding-right: 8vw;
     padding-top: 15vh;
     padding-bottom: 5vh;
+    background-color: #F1FAEE;
 }
 
 .portadaDiv {
@@ -116,7 +117,6 @@ body {
 }
 
 #modificarDiv {
-    display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
@@ -131,8 +131,31 @@ body {
     padding: 2%;
 }
 #modificarDiv input {
+    margin-left: auto;
+    margin-right: auto;
     width: 30%;
 }
+
+#rescatadosDiv {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 10%;
+    padding-top: 5%;
+    width: 90%;
+}
+
+#rescatadosDiv label {
+    font-size: 1.5em;
+    font-weight: 800;
+    padding: 2%;
+}
+#rescatadosDiv input {
+    margin-left: auto;
+    margin-right: auto;
+    width: 30%;
+}
+
 .menuBtn {
     background-color: #457B9D;
     border: 2px solid #a1282f;
