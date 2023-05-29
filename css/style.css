@@ -507,7 +507,7 @@ footer {
     display: flex;
     height: 16vh;
     justify-content: space-around;
-
+    bottom: 0;
 }
 
 .terminos {
