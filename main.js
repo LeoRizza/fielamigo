@@ -23,7 +23,8 @@ let listaAnimales = [];
 
 let numeroMascota = 1;
 
-const modificarMascota = () => {
+const modificarMascota = (event) => {
+    event.preventDefault();
 
     const numeroInput = document.getElementById("ModificaInput");
     const numero = parseInt(numeroInput.value);
