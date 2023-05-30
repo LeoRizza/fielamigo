@@ -44,11 +44,13 @@
 
                         <label for="especieMascota">Especie:</label>
                         <br>
-                        <input type="radio" id="especiePerro" name="especieMascota" value="Perro">
-                        <label for="especiePerro">Perro</label>
-                        <br>
-                        <input type="radio" id="especieGato" name="especieMascota" value="Gato">
-                        <label for="especieGato">Gato</label>
+                        <div class="radiosAdmin">
+                            <input type="radio" id="especiePerro" name="especieMascota" value="Perro">
+                            <label for="especiePerro">Perro</label>
+                            <br>
+                            <input type="radio" id="especieGato" name="especieMascota" value="Gato">
+                            <label for="especieGato">Gato</label>
+                        </div>
                         <br>
 
                         <label for="edadMascota">Edad:</label>
@@ -56,13 +58,14 @@
 
                         <label for="sexoMascota">Sexo:</label>
                         <br>
-                        <input type="radio" id="sexoMacho" name="sexoMascota" value="Macho">
-                        <label for="sexoMacho">Macho</label>
+                        <div class="radiosAdmin">
+                            <input type="radio" id="sexoMacho" name="sexoMascota" value="Macho">
+                            <label for="sexoMacho">Macho</label>
+                            <br>
+                            <input type="radio" id="sexoHembra" name="sexoMascota" value="Hembra">
+                            <label for="sexoHembra">Hembra</label>
+                        </div>
                         <br>
-                        <input type="radio" id="sexoHembra" name="sexoMascota" value="Hembra">
-                        <label for="sexoHembra">Hembra</label>
-                        <br>
-
                         <label for="colorMascota">Descripción:</label>
                         <input class="form-control" type="text" id="colorMascota" name="colorMascota">
 
@@ -70,7 +73,8 @@
                         <input type="file" name="fotoMascota" id="fotoMascota">
                         <br>
 
-                        <button class="menuBtn2" onclick="event.preventDefault(); agregarMascotaFromForm()">Agregar</button>
+                        <button class="menuBtn2"
+                            onclick="event.preventDefault(); agregarMascotaFromForm()">Agregar</button>
                     </form>
                 </div>
                 <div id="rescatadosDiv" class="menuDiv">

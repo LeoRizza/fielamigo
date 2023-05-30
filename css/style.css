@@ -15,7 +15,7 @@ body {
     flex-wrap: wrap;
 }
 .navbarAdopta {
-
+    background-color: #a1282f;
 }
 /* -------------------------------------------------------------- */
 /* ---------------------------Main------------------------------ */
@@ -75,6 +75,10 @@ body {
 /* -------------------------------------------------------------- */
 /* ---------------------------Admin------------------------------ */
 /* -------------------------------------------------------------- */
+
+#fotoMascota {
+    padding: 2vw;
+}
 
 .admin {
     display: flex;
@@ -168,6 +172,17 @@ body {
     width: 30%;
 }
 
+.radiosAdmin {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-left: 15%;
+}
+
+.radiosAdmin label{
+    padding-right: 25%;
+}
+
 .menuBtn {
     background-color: #457B9D;
     border: 2px solid #a1282f;
@@ -191,6 +206,7 @@ body {
 }
 
 .agregarMascotaForm {
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -201,10 +217,6 @@ body {
     margin-top: 1em;
     font-weight: 900;
     font-size: 20px;
-}
-
-.agregarMascotaForm input {
-    width: 100%;
 }
 
 .card {
