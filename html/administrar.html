@@ -23,23 +23,6 @@
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon .navbar-dark"></span>
             </button>
-
-            <!-- <div class="collapse navbar-collapse navegador" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link linkNav" href="#rescata">Transito | Adopcion</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link linkNav" id="rescatadosBtn" href="#Rescatados">Rescatados</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link linkNav" id="autenticarBtn">Acceso</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link linkNav" id="login" href="#contacto">Contacto</a>
-                    </li>
-                </ul>
-            </div> -->
         </nav>
     </header>
 
@@ -55,24 +38,39 @@
             </div>
             <div class="menu2 col-10">
                 <div id="agregarDiv" class="agregarMascotaForm menuDiv">
-                    <form onclick="event.preventDefault();">
+                    <form>
                         <label for="nombreMascota">Nombre:</label>
                         <input class="form-control" type="text" id="nombreMascota" name="nombreMascota">
 
                         <label for="especieMascota">Especie:</label>
-                        <input class="form-control" type="text" id="especieMascota" name="especieMascota">
+                        <br>
+                        <input type="radio" id="especiePerro" name="especieMascota" value="Perro">
+                        <label for="especiePerro">Perro</label>
+                        <br>
+                        <input type="radio" id="especieGato" name="especieMascota" value="Gato">
+                        <label for="especieGato">Gato</label>
+                        <br>
 
                         <label for="edadMascota">Edad:</label>
                         <input class="form-control" type="number" id="edadMascota" name="edadMascota">
 
                         <label for="sexoMascota">Sexo:</label>
-                        <input class="form-control" type="text" id="sexoMascota" name="sexoMascota">
-
-                        <label for="colorMascota">Descripcion:</label>
-                        <input class="form-control" type="text" id="colorMascota" name="colorMascota">
+                        <br>
+                        <input type="radio" id="sexoMacho" name="sexoMascota" value="Macho">
+                        <label for="sexoMacho">Macho</label>
+                        <br>
+                        <input type="radio" id="sexoHembra" name="sexoMascota" value="Hembra">
+                        <label for="sexoHembra">Hembra</label>
                         <br>
 
-                        <button class="menuBtn2" onclick="agregarMascotaFromForm()">Agregar</button>
+                        <label for="colorMascota">Descripción:</label>
+                        <input class="form-control" type="text" id="colorMascota" name="colorMascota">
+
+                        <label for="fotoMascota">Foto de la mascota</label>
+                        <input type="file" name="fotoMascota" id="fotoMascota">
+                        <br>
+
+                        <button class="menuBtn2" onclick="event.preventDefault(); agregarMascotaFromForm()">Agregar</button>
                     </form>
                 </div>
                 <div id="rescatadosDiv" class="menuDiv">

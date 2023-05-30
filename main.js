@@ -192,16 +192,30 @@ const mostrarDiv = (divId) => {
 
 const agregarMascotaFromForm = () => {
     const nombreInput = document.getElementById('nombreMascota');
-    const especieInput = document.getElementById('especieMascota');
     const edadInput = document.getElementById('edadMascota');
-    const sexoInput = document.getElementById('sexoMascota');
     const colorInput = document.getElementById('colorMascota');
+    const especiePerroInput = document.getElementById('especiePerro');
+    const especieGatoInput = document.getElementById('especieGato');
+    const sexoMachoInput = document.getElementById('sexoMacho');
+    const sexoHembraInput = document.getElementById('sexoHembra');
 
     const nombre = nombreInput.value.trim();
-    const especie = especieInput.value.trim();
     const edad = edadInput.value.trim();
-    const sexo = sexoInput.value.trim();
     const color = colorInput.value.trim();
+
+    let especie = '';
+    if (especiePerroInput.checked) {
+        especie = especiePerroInput.value;
+    } else if (especieGatoInput.checked) {
+        especie = especieGatoInput.value;
+    }
+
+    let sexo = '';
+    if (sexoMachoInput.checked) {
+        sexo = sexoMachoInput.value;
+    } else if (sexoHembraInput.checked) {
+        sexo = sexoHembraInput.value;
+    }
 
     if (!nombre || !especie || !edad || !sexo || !color) {
         alert('Por favor, complete todos los campos del formulario.');
@@ -216,10 +230,12 @@ const agregarMascotaFromForm = () => {
     listaAnimales.push(nuevaMascota);
 
     nombreInput.value = '';
-    especieInput.value = '';
     edadInput.value = '';
-    sexoInput.value = '';
     colorInput.value = '';
+    especiePerroInput.checked = false;
+    especieGatoInput.checked = false;
+    sexoMachoInput.checked = false;
+    sexoHembraInput.checked = false;
 
     const listaAnimalesJSON = JSON.stringify(listaAnimales);
     localStorage.setItem('listaAnimales', listaAnimalesJSON);
@@ -230,7 +246,7 @@ const agregarMascotaFromForm = () => {
         toast: true,
         position: 'top-end',
         showConfirmButton: false,
-        timer: 3000,
+        timer: 2000,
         timerProgressBar: true,
         didOpen: (toast) => {
             toast.addEventListener('mouseenter', Swal.stopTimer);
@@ -240,6 +256,8 @@ const agregarMascotaFromForm = () => {
 
     mostrarMascotas();
 };
+
+
 
 const listaMascotasDiv = document.getElementById('listaMascotasDiv');
 
