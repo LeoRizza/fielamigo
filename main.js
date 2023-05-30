@@ -1,10 +1,26 @@
 window.addEventListener('DOMContentLoaded', () => {
     const listaAnimalesJSON = localStorage.getItem('listaAnimales');
+    const listaRescatadosJSON = localStorage.getItem('listaRescatados');
+
     if (listaAnimalesJSON) {
         listaAnimales = JSON.parse(listaAnimalesJSON);
-        numeroMascota = listaAnimales.length + 1;
     }
+
+    if (listaRescatadosJSON) {
+        listaRescatados = JSON.parse(listaRescatadosJSON);
+    }
+
+    const maxNumero = getMaxNumero(listaAnimales, listaRescatados);
+    numeroMascota = maxNumero + 1;
 });
+
+const getMaxNumero = (arr1, arr2) => {
+    const numeros = arr1.concat(arr2).map(mascota => mascota.numero);
+    return Math.max(...numeros);
+};
+
+// Resto del código...
+
 
 class Mascota {
     constructor(nombre, especie, edad, sexo, color, numero) {

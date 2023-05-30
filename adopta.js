@@ -1,6 +1,6 @@
 window.addEventListener('DOMContentLoaded', () => {
     const listaAnimalesJSON = localStorage.getItem('listaAnimales');
-    let listaAnimales = []; // Declara la variable listaAnimales como un arreglo vacío
+    let listaAnimales = [];
 
     if (listaAnimalesJSON) {
         listaAnimales = JSON.parse(listaAnimalesJSON);
