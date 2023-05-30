@@ -1,3 +1,67 @@
+const autenticar = (event) => {
+    event.preventDefault();
+
+    const usuarioInput = document.getElementById('usuario');
+    const passwordInput = document.getElementById('password');
+    const nombreUsuario = usuarioInput.value;
+    const contrasena = passwordInput.value;
+
+    if (nombreUsuario === "Admin89" && contrasena === "pass999") {
+        Swal.fire({
+            icon: 'success',
+            title: '¡Ingreso exitoso!',
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 1000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer);
+                toast.addEventListener('mouseleave', Swal.resumeTimer);
+            }
+        });
+        setTimeout(() => {
+            window.location.href = "../html/administrar.html";
+        }, 1000);
+    } else {
+        if (nombreUsuario !== "Admin89") {
+            Swal.fire({
+                icon: "error",
+                title: "Usuario inexistente.",
+            });
+        } else {
+            Swal.fire({
+                icon: "error",
+                title: "Contraseña incorrecta.",
+            });
+        }
+    }
+};
+
+const ingresoForm = document.getElementById('ingreso');
+if (ingresoForm) {
+    ingresoForm.addEventListener('submit', autenticar);
+}
+
+const autenticarBtn = document.getElementById('autenticarBtn');
+const formularioIngreso = document.getElementById('formularioIngreso');
+
+if (autenticarBtn && formularioIngreso) {
+    autenticarBtn.addEventListener('click', (event) => {
+        event.preventDefault();
+        formularioIngreso.style.display = 'block';
+    });
+}
+
+const cerrarBtn = document.getElementById('cerrarBtn');
+if (cerrarBtn && formularioIngreso) {
+    cerrarBtn.addEventListener('click', () => {
+        formularioIngreso.style.display = 'none';
+    });
+}
+
+//--------------------------------------------------//
+
 window.addEventListener('DOMContentLoaded', () => {
     const listaAnimalesJSON = localStorage.getItem('listaAnimales');
     let listaAnimales = [];
@@ -6,14 +70,14 @@ window.addEventListener('DOMContentLoaded', () => {
         listaAnimales = JSON.parse(listaAnimalesJSON);
     }
 
-    console.log(listaAnimales);
-
     const vidrieraMascotas = document.getElementById('vidrieraMascotas');
+    const especieSelector = document.getElementById('especie');
+    const sexoSelector = document.getElementById('sexo');
+    const palabraClaveInput = document.getElementById('palabraClave');
+    const btnFiltrar = document.getElementById('btnFiltrar');
 
-    const mostrarMascotas = () => {
+    const mostrarMascotas = (mascotas) => {
         vidrieraMascotas.innerHTML = "";
-
-        const mascotas = listaAnimales;
 
         if (mascotas) {
             mascotas.forEach(mascota => {
@@ -39,5 +103,32 @@ window.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    mostrarMascotas();
+    const filtrarMascotas = () => {
+        const especie = especieSelector.value;
+        const sexo = sexoSelector.value;
+        const palabraClave = palabraClaveInput.value.toLowerCase();
+
+        let mascotasFiltradas = listaAnimales;
+
+        if (especie !== 'todos') {
+            mascotasFiltradas = mascotasFiltradas.filter(mascota => mascota.especie.toLowerCase() === especie.toLowerCase());
+        }
+
+        if (sexo !== 'todos') {
+            mascotasFiltradas = mascotasFiltradas.filter(mascota => mascota.sexo.toLowerCase() === sexo.toLowerCase());
+        }
+
+        if (palabraClave.trim() !== '') {
+            mascotasFiltradas = mascotasFiltradas.filter(mascota =>
+                Object.values(mascota).some(valor => typeof valor === 'string' && valor.toLowerCase().includes(palabraClave))
+            );
+        }
+
+        mostrarMascotas(mascotasFiltradas);
+    };
+
+    btnFiltrar.addEventListener('click', filtrarMascotas);
+
+    mostrarMascotas(listaAnimales);
 });
+

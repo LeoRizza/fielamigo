@@ -10,13 +10,55 @@ body {
 /* -------------------------------------------------------------- */
 .vidrieraMascotas {
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     gap: 10px;
     flex-wrap: wrap;
+    width: 80%;
+    margin: 3vh 0.5vw
 }
+
 .navbarAdopta {
     background-color: #a1282f;
 }
+
+.filtros {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    min-width: 200px;
+    padding: 0 10px;
+    margin-top: 30px;
+    font-weight: 800;
+    font-size: 1.5rem;
+    color: #1D3557;
+}
+
+.filtros .form-select {
+    max-width: 60%;
+    min-width: 30%;
+    border-color: #1D3557;
+}
+
+.filtros .form-control {
+    max-width: 80%;
+    border-color: #1D3557;
+}
+
+#btnFiltrar {
+    color: #F1FAEE;
+    background-color: #457B9D;
+    border-radius: 15%;
+    border: solid #a1282f 3px;
+    padding: 1% 5%;
+}
+
+.adoptarDiv {
+    display: flex;
+    flex-wrap: nowrap;
+    position: relative;
+}
+
 /* -------------------------------------------------------------- */
 /* ---------------------------Main------------------------------ */
 /* -------------------------------------------------------------- */
@@ -146,6 +188,7 @@ body {
     font-weight: 800;
     padding: 2%;
 }
+
 #modificarDiv input {
     margin-left: auto;
     margin-right: auto;
@@ -166,6 +209,7 @@ body {
     font-weight: 800;
     padding: 2%;
 }
+
 #rescatadosDiv input {
     margin-left: auto;
     margin-right: auto;
@@ -179,7 +223,7 @@ body {
     padding-left: 15%;
 }
 
-.radiosAdmin label{
+.radiosAdmin label {
     padding-right: 25%;
 }
 
@@ -230,6 +274,7 @@ body {
 .card {
     display: flex;
     overflow-y: auto;
+    text-align: center;
     padding: 0;
     margin: 0;
     width: 15rem;
@@ -241,8 +286,8 @@ body {
     border-top: solid 2px #1D3557;
 }
 
-.card-body h5{
-    border:solid 2px rgba(29, 53, 87, 0.2);
+.card-body h5 {
+    border: solid 2px rgba(29, 53, 87, 0.2);
     border-radius: 15px;
 
 }
@@ -265,6 +310,7 @@ body {
     margin: 0;
     text-align: left;
 }
+
 /* -------------------------------------------------------------- */
 /* ----------------------------Nav------------------------------- */
 /* -------------------------------------------------------------- */
@@ -498,6 +544,9 @@ h4 {
 
 .label2 {
     margin-top: 3%;
+    font-weight: 600;
+    color: #1d3557;
+    font-size: 19px;
 }
 
 .inputLoco {
@@ -586,6 +635,7 @@ footer {
 }
 
 .redes h5 {
+    margin-top: 20px;
     color: #f1faee;
     text-align: center;
     font-weight: 800;
