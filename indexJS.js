@@ -113,3 +113,28 @@ const enviarConsulta = (event) => {
 if (formularioContacta) {
     formularioContacta.addEventListener('submit', enviarConsulta);
 }
+
+const listaRescatadosJSON = localStorage.getItem('listaRescatados');
+let listaRescatados = [];
+
+if (listaRescatadosJSON) {
+    listaRescatados = JSON.parse(listaRescatadosJSON);
+}
+
+const rescatadosDiv = document.getElementById('rescatadosDiv');
+
+rescatadosDiv.innerHTML = '';
+
+const ultimasMascotas = listaRescatados.slice(-3);
+
+ultimasMascotas.forEach(mascota => {
+    const card = document.createElement('div');
+    card.classList.add('mascotaCard');
+
+    card.innerHTML = `
+    <img src="./img/pexels-dominika-roseclay-2023384.jpg" alt="mascota rescatada">
+    <h4>${mascota.nombre}</h4>
+    `;
+
+    rescatadosDiv.appendChild(card);
+});

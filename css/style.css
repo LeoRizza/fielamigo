@@ -199,9 +199,8 @@ body {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    padding-left: 10%;
-    padding-top: 5%;
-    width: 90%;
+    width: 100%;
+    border-top: #a1282f solid 5px;
 }
 
 #rescatadosDiv label {
@@ -431,10 +430,6 @@ nav {
     max-height: 45vh;
 }
 
-#rescata {
-    padding-top: 7.4%;
-}
-
 .botonAdopta {
     letter-spacing: 4.83679px;
     font-weight: 600;
@@ -576,6 +571,48 @@ h4 {
 #consulta {
     padding: 2% 3%;
 }
+/* -------------------------------------------------------------- */
+/* --------------------RescatadosSection------------------------- */
+/* -------------------------------------------------------------- */
+
+.mascotaCard {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    width: fit-content;
+    margin: 0 auto;
+    background-color: #f2f2f2;
+    position: relative;
+}
+
+.mascotaCard h4 {
+    position: absolute;
+    object-fit: contain;
+    z-index: 5;
+    color: #F1FAEE;
+    font-weight: 800;
+    background-color: hsl(215, 50%, 23%, 0.3);
+    width: 100%;
+    height: 35px;
+    bottom: auto;
+    top: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mascotaCard img {
+    width: 100%;
+    height: auto;
+
+}
+
+.rescatadosDiv {
+    display: flex;
+    flex-direction: row-reverse;
+    width: 100%;
+}
 
 /* -------------------------------------------------------------- */
 /* --------------------------Footer------------------------------ */
@@ -583,7 +620,7 @@ h4 {
 
 footer {
     background: linear-gradient(180deg, #1D3557 20.31%, #457B9D 100%);
-    border-top: 4px solid #a1282f;
+    border-top: 4px solid #F1FAEE;
     padding: 1em;
     display: flex;
     height: 16vh;
