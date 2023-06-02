@@ -587,8 +587,10 @@ nav {
 }
 
 h4 {
-    text-align: center;
+    text-align: start;
     color: #1D3557;
+    margin: 5%;
+    font-size: 2rem;
 }
 
 .contactoForm {
@@ -936,9 +938,18 @@ footer {
     .inputLoco {
         width: 90%;
     }
+
+    h4 {
+        font-size: 1.5rem;
+    }
 }
 
 @media (max-width: 991px) and (min-width: 601px) {
+
+    h4 {
+        font-size: 1.5rem;
+    }
+
     .linkNav {
         font-size: 2vw;
         padding-top: 1.2em;
