@@ -8,7 +8,7 @@ const autenticar = (event) => {
     const nombreUsuario = usuarioInput.value;
     const contrasena = passwordInput.value;
 
-    if (nombreUsuario === "Admin89" && contrasena === "pass999") {
+    if (nombreUsuario === "admin" && contrasena === "0000") {
         Swal.fire({
             icon: 'success',
             title: '¡Ingreso exitoso!',
@@ -26,7 +26,7 @@ const autenticar = (event) => {
             window.location.href = "./html/administrar.html";
         }, 1000);
     } else {
-        if (nombreUsuario !== "Admin89") {
+        if (nombreUsuario !== "admin") {
             Swal.fire({
                 icon: "error",
                 title: "Usuario inexistente.",
