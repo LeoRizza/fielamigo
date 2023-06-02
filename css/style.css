@@ -815,13 +815,15 @@ footer {
 /* -------------------------------------------------------------- */
 
 @media (max-width: 600px) {
+
     .logo {
         width: 40vw;
     }
 
     .footer2 {
+        display: flex;
         align-items: flex-end;
-        height: fit-content;
+        justify-content: flex-end;
         padding: 0;
         bottom: 5px;
     }
@@ -876,6 +878,14 @@ footer {
         display: flex;
         justify-content: center;
         margin: 0;
+        border-top: solid 0.1em #f1faee;
+        padding-top: 0%;
+        padding-bottom: 0.5em;
+        background: linear-gradient(180deg, #457b9d 26.04%, #1d3557 91.15%);
+    }
+
+    .navegador li a {
+        font-size: 12px;
     }
 
     .navbar2 {
@@ -898,8 +908,21 @@ footer {
         font-size: 3em;
     }
 
+    .contactoDiv { 
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        width: 100%;
+        margin: 0;
+    }
+
+    .mensajero {
+        width: 100%;
+    }
+
     .contactoDiv2 li {
         font-size: 1em;
+        width: 100%;
     }
 
     .strongito {
