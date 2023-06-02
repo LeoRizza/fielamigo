@@ -1,3 +1,5 @@
+const cloudinaryUpURL = 'https://api.cloudinary.com/v1_1/dzrg0m1mc/image/upload';
+
 const autenticar = (event) => {
     event.preventDefault();
 
@@ -82,12 +84,11 @@ window.addEventListener('DOMContentLoaded', () => {
         if (mascotas) {
             mascotas.forEach(mascota => {
                 const card = document.createElement('div');
-                card.classList.add('mascotaCard');
 
                 card.innerHTML = `
-                <div class="card">
+                <div class="mascotaCard">
                     <h3 class="numeroID">${mascota.numero}</h3>
-                    <img src="../img/pexels-dominika-roseclay-2023384.jpg" class="card-img-top" alt="${mascota.nombre}">
+                    <img src="${mascota.imagenURL}" alt="${mascota.nombre}">
                     <div class="card-body">
                         <h5 class="card-title">${mascota.nombre}</h5>
                         <p class="cardLoca">Especie: ${mascota.especie}.</p>

@@ -3,6 +3,7 @@
 body {
     background-color: whitesmoke;
     font-family: "Roboto", sans-serif;
+    margin: 0;
 }
 
 /* -------------------------------------------------------------- */
@@ -75,6 +76,10 @@ body {
     padding-right: 8vw;
     padding-top: 15vh;
     padding-bottom: 5vh;
+    background-color: #F1FAEE;
+}
+
+.mainAdopta {
     background-color: #F1FAEE;
 }
 
@@ -196,7 +201,6 @@ body {
     justify-content: flex-start;
     align-items: center;
     width: 100%;
-    border-top: #a1282f solid 5px;
 }
 
 #rescatadosDiv label {
@@ -209,6 +213,13 @@ body {
     margin-left: auto;
     margin-right: auto;
     width: 30%;
+}
+
+.rescatadosTitulo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
 }
 
 .radiosAdmin {
@@ -250,6 +261,16 @@ body {
     font-weight: 900;
     border-radius: 10px;
     padding: 2% 5%;
+}
+
+.menuBtn4 {
+    background-color: #457B9D;
+    border: 2px solid #a1282f;
+    color: #f1faee;
+    font-weight: 900;
+    border-radius: 10px;
+    padding: 2% 5%;
+    margin-top: 10px;
 }
 
 .agregarMascotaForm {
@@ -321,8 +342,10 @@ body {
 .numeroID {
     position: absolute;
     right: 0;
-    padding-right: 10%;
+    padding: 0 10px;
     color: #F1FAEE;
+    border-radius: 50%;
+    background-color: rgb(69, 123, 157, 0.6);
 }
 
 .cardLoca p{
@@ -527,6 +550,28 @@ nav {
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
+.contactoBanner2 {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 40vw;
+    margin-left: 15%;
+    background: rgb(29, 53, 87, 0.9);
+    padding: 5px 15px;
+    border-radius: 0px 0px 20px 20px;
+}
+
+.contactoBanner2 h2 {
+    font-style: normal;
+    font-weight: 300;
+    font-size: 4vw;
+    line-height: 120%;
+    text-align: center;
+    letter-spacing: 0.1em;
+    color: #F1FAEE;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
 .contactoDiv {
     margin-top: 5%;
     padding-bottom: 5%;
@@ -593,6 +638,60 @@ h4 {
 #consulta {
     padding: 2% 3%;
 }
+
+.contactoDiv2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10%;
+}
+
+.contactoDiv2 a {
+    color: #1D3557;
+    padding-left: 20px;
+}
+
+.contactoDiv2 li {
+    list-style-type: none;
+    padding: 10px 10px;
+    margin: 15px 0;
+    font-size: 1em;
+    font-weight: 800;
+    color: #F1FAEE;
+    background-color: rgb(29, 53, 87, 0.8);
+    border: solid 2px #F1FAEE;
+    border-radius: 15px;
+    transition: transform 0.2s ease-in-out;
+    filter: drop-shadow(0px 13px 19px rgba(0, 0, 0, 0.2));
+}
+
+.contactoDiv2 li:hover {
+    transform: scale(1.3);
+}
+
+.contactoDiv2 ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0;
+}
+
+.contactoDiv2 h5 {
+    margin-top: 20px;
+    color: #f1faee;
+    text-align: center;
+    font-weight: 800;
+}
+
+.contactoDiv2 li:hover {
+    cursor: pointer;
+}
+
+.iconoRedes2 {
+    color: #F1FAEE;
+}
+
 /* -------------------------------------------------------------- */
 /* --------------------RescatadosSection------------------------- */
 /* -------------------------------------------------------------- */
@@ -611,7 +710,7 @@ h4 {
 .rescatadoCard h4 {
     position: absolute;
     object-fit: contain;
-    z-index: 5;
+    z-index: 2;
     color: #F1FAEE;
     font-weight: 800;
     background-color: hsl(215, 50%, 23%, 0.3);
@@ -644,7 +743,6 @@ footer {
     border-top: 4px solid #F1FAEE;
     padding: 1em;
     display: flex;
-    height: 16vh;
     justify-content: space-around;
     bottom: 0;
 }
@@ -721,10 +819,57 @@ footer {
         width: 40vw;
     }
 
+    .footer2 {
+        align-items: flex-end;
+        height: fit-content;
+        padding: 0;
+        bottom: 5px;
+    }
+
+    .terminos a {
+        width: 100%;
+        font-size: 15px;
+    }
+
     .linkNav {
         font-size: 2vw;
         padding-top: 1.2em;
         text-align: center;
+    }
+
+    .vidrieraMascotas {
+        width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+
+    .filtros {
+        justify-content: center;
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .admin {
+        flex-direction: column;
+    }
+
+    .menu {
+        width: 100%;
+        border-right: none;
+        min-height: 50vh;
+    }
+
+    .menu2 {
+        width: 100%;
+        padding: 0 15px;
+        margin-bottom: 15px;
+        border-top: #a1282f solid 2px;
+    }
+
+    .adoptarDiv {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
     }
 
     .navegador {
@@ -743,6 +888,26 @@ footer {
 
     .entrada p {
         font-size: 0.8em;
+    }
+
+    .mainIndex {
+        padding: 0%;
+    }
+
+    .contactoBanner2 {
+        margin-left: 30%;
+    }
+
+    .contactoBanner h2{
+        font-size: 3em;
+    }
+
+    .contactoDiv2 li {
+        font-size: 1em;
+    }
+
+    .strongito {
+        font-size: 15px;
     }
 }
 
@@ -767,8 +932,33 @@ footer {
         padding: 0;
     }
 
+    .vidrieraMascotas {
+        width: 70%;
+        margin: 0;
+    }
+    
+    .contactoBanner2 {
+        margin-left: 25%;
+    }
+
+    .contactoDiv2 li {
+        font-size: 1em;
+        border: 1px;
+    }
+
+    .mainIndex {
+        padding: 0 10%;
+    }
+
+    .navbarAdopta {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
     .logo {
-        width: 20vw;
+        width: 15vw;
+        margin-bottom: 5px;
     }
 
     .entrada img {

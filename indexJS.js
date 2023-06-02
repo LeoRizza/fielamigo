@@ -1,3 +1,5 @@
+const cloudinaryUpURL = 'https://api.cloudinary.com/v1_1/dzrg0m1mc/image/upload';
+
 const autenticar = (event) => {
     event.preventDefault();
 
@@ -132,7 +134,7 @@ ultimasMascotas.forEach(mascota => {
     card.classList.add('rescatadoCard');
 
     card.innerHTML = `
-    <img src="./img/pexels-dominika-roseclay-2023384.jpg" alt="mascota rescatada">
+    <img src="${mascota.imagenURL}" alt="mascota rescatada">
     <h4>${mascota.nombre}</h4>
     `;
 

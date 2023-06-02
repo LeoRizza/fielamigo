@@ -1,5 +1,7 @@
 const cloudinaryUpURL = 'https://api.cloudinary.com/v1_1/dzrg0m1mc/image/upload';
 
+//--------cookies?)---------//
+
 var cookies = document.cookie.split(";");
 
 for (var i = 0; i < cookies.length; i++) {
@@ -13,6 +15,8 @@ for (var i = 0; i < cookies.length; i++) {
         document.cookie = cookieName + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=.cloudinary.com; SameSite=None; Secure";
     }
 }
+
+//--------cookies?)---------//
 
 window.addEventListener('DOMContentLoaded', () => {
     const listaAnimalesJSON = localStorage.getItem('listaAnimales');
@@ -357,13 +361,13 @@ const mostrarMascotas = () => {
             descripcion.classList.add('cardLoca');
             descripcion.textContent = 'Descripcion: ' + mascota.color + '.';
 
-            cardBody.appendChild(numeroID);
             cardBody.appendChild(cardTitle);
             cardBody.appendChild(especie);
             cardBody.appendChild(edad);
             cardBody.appendChild(sexo);
             cardBody.appendChild(descripcion);
 
+            card.appendChild(numeroID);
             card.appendChild(imagen);
             card.appendChild(cardBody);
 
