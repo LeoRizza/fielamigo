@@ -89,7 +89,6 @@ body {
 
 #formularioIngreso {
     position: absolute;
-    bottom: 0;
     right: 0;
     top: 10vh;
     padding: 2rem 2rem;
@@ -444,7 +443,7 @@ nav {
 }
 
 .entrada img {
-    width: 20rem;
+    width: 20vw;
 }
 
 .entrada p {
@@ -996,7 +995,11 @@ footer {
     }
 
     .entrada img {
-        width: 35vw;
+        width: 25vw;
+    }
+
+    .strongito {
+        font-size: 15px;
     }
 
     .entrada p {
