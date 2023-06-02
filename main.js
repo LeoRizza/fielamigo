@@ -1,6 +1,5 @@
 const cloudinaryUpURL = 'https://api.cloudinary.com/v1_1/dzrg0m1mc/image/upload';
 
-localStorage.clear();
 //--------cookies?)---------//
 
 var cookies = document.cookie.split(";");
