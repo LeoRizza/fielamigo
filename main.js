@@ -150,13 +150,13 @@ const modificarMascota = (event) => {
                         const especie = opcionSeleccionada === "2" ? inputsContainer.querySelector('input[type="text"]').value : mascotaEncontrada.especie;
                         const edad = opcionSeleccionada === "3" ? parseInt(inputsContainer.querySelector('input[type="number"]').value) : mascotaEncontrada.edad;
                         const sexo = opcionSeleccionada === "4" ? inputsContainer.querySelector('select').value : mascotaEncontrada.sexo;
-                        const descripcion = opcionSeleccionada === "5" ? inputsContainer.querySelector('input[type="text"]').value : mascotaEncontrada.descripcion;
+                        const color = opcionSeleccionada === "5" ? inputsContainer.querySelector('input[type="text"]').value : mascotaEncontrada.color;
 
                         mascotaEncontrada.nombre = nombre;
                         mascotaEncontrada.especie = especie;
                         mascotaEncontrada.edad = edad;
                         mascotaEncontrada.sexo = sexo;
-                        mascotaEncontrada.descripcion = descripcion;
+                        mascotaEncontrada.color = color;
 
                         Swal.fire("¡Éxito!", "La mascota se ha modificado correctamente", "success");
                     }
