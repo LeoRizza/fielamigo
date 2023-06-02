@@ -1,3 +1,19 @@
+const cloudinaryUpURL = 'https://api.cloudinary.com/v1_1/dzrg0m1mc/image/upload';
+
+var cookies = document.cookie.split(";");
+
+for (var i = 0; i < cookies.length; i++) {
+    var cookie = cookies[i].trim();
+
+    if (cookie.indexOf(".cloudinary.com") !== -1) {
+        var cookieParts = cookie.split("=");
+
+        var cookieName = cookieParts[0];
+
+        document.cookie = cookieName + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=.cloudinary.com; SameSite=None; Secure";
+    }
+}
+
 window.addEventListener('DOMContentLoaded', () => {
     const listaAnimalesJSON = localStorage.getItem('listaAnimales');
     const listaRescatadosJSON = localStorage.getItem('listaRescatados');
@@ -11,7 +27,7 @@ window.addEventListener('DOMContentLoaded', () => {
     }
 
     const maxNumero = getMaxNumero(listaAnimales, listaRescatados);
-    numeroMascota = maxNumero + 1;
+    numeroMascota = listaAnimales.length > 0 || listaRescatados.length > 0 ? maxNumero + 1 : 1;
 });
 
 const getMaxNumero = (arr1, arr2) => {
@@ -19,17 +35,16 @@ const getMaxNumero = (arr1, arr2) => {
     return Math.max(...numeros);
 };
 
-// Resto del código...
-
 
 class Mascota {
-    constructor(nombre, especie, edad, sexo, color, numero) {
+    constructor(nombre, especie, edad, sexo, color, numero, imagenURL) {
         this.nombre = nombre;
         this.especie = especie;
         this.edad = edad;
         this.sexo = sexo;
         this.color = color;
         this.numero = numero;
+        this.imagenURL = imagenURL;
     }
 }
 
@@ -214,10 +229,12 @@ const agregarMascotaFromForm = () => {
     const especieGatoInput = document.getElementById('especieGato');
     const sexoMachoInput = document.getElementById('sexoMacho');
     const sexoHembraInput = document.getElementById('sexoHembra');
+    const fotoMascotaInput = document.getElementById('fotoMascota');
 
     const nombre = nombreInput.value.trim();
     const edad = edadInput.value.trim();
     const color = colorInput.value.trim();
+    const fotoMascota = fotoMascotaInput.files[0];
 
     let especie = '';
     if (especiePerroInput.checked) {
@@ -233,46 +250,68 @@ const agregarMascotaFromForm = () => {
         sexo = sexoHembraInput.value;
     }
 
-    if (!nombre || !especie || !edad || !sexo || !color) {
-        alert('Por favor, complete todos los campos del formulario.');
+    const formData = new FormData();
+    formData.append('file', fotoMascota);
+    formData.append('upload_preset', 'UploadPreset1');
+
+    if (!nombre || !especie || !edad || !sexo || !color || !fotoMascota) {
+        Swal.fire("Error", "Por favor, complete todos los campos del formulario y seleccione una foto.", "error");
         return;
     }
 
-    const numero = numeroMascota;
+    fetch(cloudinaryUpURL, {
+        method: 'POST',
+        body: formData
+    })
+        .then(response => response.json())
+        .then(data => {
+            const imagenURL = data.secure_url;
 
-    numeroMascota++;
+            const numero = numeroMascota;
+            numeroMascota++;
 
-    let nuevaMascota = new Mascota(nombre, especie, edad, sexo, color, numero);
-    listaAnimales.push(nuevaMascota);
+            let nuevaMascota = new Mascota(nombre, especie, edad, sexo, color, numero, imagenURL);
+            listaAnimales.push(nuevaMascota);
 
-    nombreInput.value = '';
-    edadInput.value = '';
-    colorInput.value = '';
-    especiePerroInput.checked = false;
-    especieGatoInput.checked = false;
-    sexoMachoInput.checked = false;
-    sexoHembraInput.checked = false;
+            nombreInput.value = '';
+            edadInput.value = '';
+            colorInput.value = '';
+            especiePerroInput.checked = false;
+            especieGatoInput.checked = false;
+            sexoMachoInput.checked = false;
+            sexoHembraInput.checked = false;
 
-    const listaAnimalesJSON = JSON.stringify(listaAnimales);
-    localStorage.setItem('listaAnimales', listaAnimalesJSON);
+            agregarImagenMascota(nuevaMascota, imagenURL);
 
-    Swal.fire({
-        icon: 'success',
-        title: 'Mascota agregada con éxito.',
-        toast: true,
-        position: 'top-end',
-        showConfirmButton: false,
-        timer: 2000,
-        timerProgressBar: true,
-        didOpen: (toast) => {
-            toast.addEventListener('mouseenter', Swal.stopTimer);
-            toast.addEventListener('mouseleave', Swal.resumeTimer);
-        },
-    });
+            const listaAnimalesJSON = JSON.stringify(listaAnimales);
+            localStorage.setItem('listaAnimales', listaAnimalesJSON);
+
+            Swal.fire({
+                icon: 'success',
+                title: 'Mascota agregada con éxito.',
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 2000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                    toast.addEventListener('mouseenter', Swal.stopTimer);
+                    toast.addEventListener('mouseleave', Swal.resumeTimer);
+                },
+            });
+
+            mostrarMascotas();
+        })
+        .catch(error => {
+            console.error(error);
+        });
+};
+
+const agregarImagenMascota = (mascota, imagenURL) => {
+    mascota.imagenURL = imagenURL;
 
     mostrarMascotas();
 };
-
 
 
 const listaMascotasDiv = document.getElementById('listaMascotasDiv');
@@ -287,24 +326,52 @@ const mostrarMascotas = () => {
             const card = document.createElement('div');
             card.classList.add('mascotaCard');
 
-            card.innerHTML = `
-            <div class="card">
-                <h3 class="numeroID">${mascota.numero}</h3>
-                <img src="../img/pexels-dominika-roseclay-2023384.jpg" class="card-img-top" alt="${mascota.nombre}">
-                <div class="card-body">
-                    <h5 class="card-title">${mascota.nombre}</h5>
-                    <p class="cardLoca">Especie: ${mascota.especie}.</p>
-                    <p class="cardLoca">Edad: ${mascota.edad}.</p>
-                    <p class="cardLoca">Sexo: ${mascota.sexo}.</p>
-                    <p class="cardLoca">Descripcion: ${mascota.color}.</p>
-                </div>
-            </div>
-        `;
+            const imagen = document.createElement('img');
+            imagen.src = mascota.imagenURL;
+            imagen.alt = mascota.nombre;
+
+            const cardBody = document.createElement('div');
+            cardBody.classList.add('card-body');
+
+            const numeroID = document.createElement('h3');
+            numeroID.classList.add('numeroID');
+            numeroID.textContent = mascota.numero;
+
+            const cardTitle = document.createElement('h5');
+            cardTitle.classList.add('card-title');
+            cardTitle.textContent = mascota.nombre;
+
+            const especie = document.createElement('p');
+            especie.classList.add('cardLoca');
+            especie.textContent = 'Especie: ' + mascota.especie + '.';
+
+            const edad = document.createElement('p');
+            edad.classList.add('cardLoca');
+            edad.textContent = 'Edad: ' + mascota.edad + '.';
+
+            const sexo = document.createElement('p');
+            sexo.classList.add('cardLoca');
+            sexo.textContent = 'Sexo: ' + mascota.sexo + '.';
+
+            const descripcion = document.createElement('p');
+            descripcion.classList.add('cardLoca');
+            descripcion.textContent = 'Descripcion: ' + mascota.color + '.';
+
+            cardBody.appendChild(numeroID);
+            cardBody.appendChild(cardTitle);
+            cardBody.appendChild(especie);
+            cardBody.appendChild(edad);
+            cardBody.appendChild(sexo);
+            cardBody.appendChild(descripcion);
+
+            card.appendChild(imagen);
+            card.appendChild(cardBody);
 
             listaMascotasDiv.appendChild(card);
         });
     }
 };
+
 
 mostrarMascotas();
 

@@ -118,10 +118,6 @@ body {
 /* ---------------------------Admin------------------------------ */
 /* -------------------------------------------------------------- */
 
-#fotoMascota {
-    padding: 2vw;
-}
-
 .admin {
     display: flex;
     justify-content: space-around;
@@ -283,31 +279,57 @@ body {
 
 .card-body {
     border-top: solid 2px #1D3557;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-title { 
+    color: #F1FAEE;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
 }
 
 .card-body h5 {
-    border: solid 2px rgba(29, 53, 87, 0.2);
-    border-radius: 15px;
-
+    background-color: #1d3557;
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    padding-bottom: 5px;
 }
 
-.card img {
-    height: 55%;
+.mascotaCard {
+    text-align: center;
     padding: 0;
     margin: 0;
+    width: 15rem;
+    position: relative;
+    border: solid 2px #1D3557;
+    border-radius: 15px;
+}
+
+.mascotaCard img {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
 }
 
 .numeroID {
     position: absolute;
     right: 0;
-    padding-right: 10px;
+    padding-right: 10%;
+    color: #F1FAEE;
 }
 
-.cardLoca {
+.cardLoca p{
     font-size: 0.8em;
-    padding: 0;
     margin: 0;
     text-align: left;
+    margin-top: 5px;
 }
 
 /* -------------------------------------------------------------- */
@@ -575,7 +597,7 @@ h4 {
 /* --------------------RescatadosSection------------------------- */
 /* -------------------------------------------------------------- */
 
-.mascotaCard {
+.rescatadoCard {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -586,7 +608,7 @@ h4 {
     position: relative;
 }
 
-.mascotaCard h4 {
+.rescatadoCard h4 {
     position: absolute;
     object-fit: contain;
     z-index: 5;
@@ -602,7 +624,7 @@ h4 {
     align-items: center;
 }
 
-.mascotaCard img {
+.rescatadoCard img {
     width: 100%;
     height: 600px;
 }

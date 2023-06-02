@@ -129,7 +129,7 @@ const ultimasMascotas = listaRescatados.slice(-3);
 
 ultimasMascotas.forEach(mascota => {
     const card = document.createElement('div');
-    card.classList.add('mascotaCard');
+    card.classList.add('rescatadoCard');
 
     card.innerHTML = `
     <img src="./img/pexels-dominika-roseclay-2023384.jpg" alt="mascota rescatada">
