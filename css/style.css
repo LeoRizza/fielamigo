@@ -554,8 +554,7 @@ nav {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    width: 40vw;
-    margin-left: 15%;
+    align-items: center;
     background: rgb(29, 53, 87, 0.9);
     padding: 5px 15px;
     border-radius: 0px 0px 20px 20px;
@@ -598,6 +597,7 @@ h4 {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 80%;
 }
 
 .contactoForm button {
@@ -894,10 +894,6 @@ footer {
         padding: 0%;
     }
 
-    .contactoBanner2 {
-        margin-left: 30%;
-    }
-
     .contactoBanner h2{
         font-size: 3em;
     }
@@ -908,6 +904,14 @@ footer {
 
     .strongito {
         font-size: 15px;
+    }
+
+    .contactoForm {
+        width: 100%;
+    }
+
+    .inputLoco {
+        width: 90%;
     }
 }
 
@@ -935,10 +939,6 @@ footer {
     .vidrieraMascotas {
         width: 70%;
         margin: 0;
-    }
-    
-    .contactoBanner2 {
-        margin-left: 25%;
     }
 
     .contactoDiv2 li {
